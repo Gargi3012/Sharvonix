@@ -3171,11 +3171,19 @@
   // 6. Mobile Menu Drawer
   const mobileToggle = document.getElementById('mobileToggleBtn');
   const mobileDrawer = document.getElementById('mobileDrawer');
-  mobileToggle.addEventListener('click', () => {
-    mobileDrawer.classList.toggle('open');
-  });
+  if (mobileToggle && mobileDrawer) {
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileDrawer.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!mobileDrawer.contains(e.target) && !mobileToggle.contains(e.target)) {
+        mobileDrawer.classList.remove('open');
+      }
+    });
+  }
   function closeMobileMenu() {
-    mobileDrawer.classList.remove('open');
+    if (mobileDrawer) mobileDrawer.classList.remove('open');
   }
 
   // 7. Lead Form Submit -> WhatsApp Pre-filled redirect
@@ -3296,23 +3304,6 @@
       desktopBtn.classList.add('active');
       mobileBtn.classList.remove('active');
     }
-  }
-
-  // 10. Mobile Menu Drawer Navigation Handler
-  const mobileToggleBtn = document.getElementById('mobileToggleBtn');
-  const mobileDrawer = document.getElementById('mobileDrawer');
-
-  if (mobileToggleBtn && mobileDrawer) {
-    mobileToggleBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      mobileDrawer.classList.toggle('open');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!mobileDrawer.contains(e.target) && !mobileToggleBtn.contains(e.target)) {
-        mobileDrawer.classList.remove('open');
-      }
-    });
   }
 
   // 11. Mobile Pricing Carousel & Tabs Controller
