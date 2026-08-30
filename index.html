@@ -1771,6 +1771,404 @@
     border: 10px solid #1C1C24;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
   }
+
+  /* =========================================================================
+     📱 MOBILE-FIRST RESPONSIVE DESIGN SUITE & TOUCH OPTIMIZATIONS
+     ========================================================================= */
+  @media (max-width: 860px) {
+    :root {
+      --container: 100%;
+    }
+
+    body {
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
+    }
+
+    .wrap {
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+    }
+
+    .section-pad {
+      padding-top: 64px !important;
+      padding-bottom: 64px !important;
+    }
+
+    /* 1. Navbar Mobile Optimization */
+    .navbar {
+      top: 12px !important;
+      padding: 8px 14px !important;
+      width: calc(100% - 24px) !important;
+      max-width: 100% !important;
+      border-radius: var(--radius-full) !important;
+      backdrop-filter: blur(20px) !important;
+    }
+
+    .nav-brand {
+      gap: 8px !important;
+    }
+
+    .brand-logo-icon {
+      width: 30px !important;
+      height: 30px !important;
+      font-size: 14px !important;
+    }
+
+    .brand-text {
+      font-size: 17px !important;
+    }
+
+    .nav-links, .nav-cta-btn {
+      display: none !important;
+    }
+
+    .mobile-toggle-btn {
+      display: flex !important;
+    }
+
+    .mobile-menu-drawer {
+      top: 68px !important;
+      left: 12px !important;
+      right: 12px !important;
+      padding: 22px 20px !important;
+      gap: 12px !important;
+      border-radius: 22px !important;
+      background: rgba(14, 14, 20, 0.96) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      backdrop-filter: blur(28px) !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .mobile-menu-drawer a {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      padding: 10px 4px !important;
+      color: #FFFFFF !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      text-decoration: none !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+    }
+
+    /* 2. Hero Mobile Optimization */
+    .hero-section {
+      padding-top: 110px !important;
+      padding-bottom: 50px !important;
+      min-height: auto !important;
+    }
+
+    .hero-headline {
+      font-size: clamp(30px, 8.8vw, 46px) !important;
+      line-height: 1.12 !important;
+      letter-spacing: -0.025em !important;
+      margin-bottom: 18px !important;
+    }
+
+    .hero-subhead {
+      font-size: 15px !important;
+      line-height: 1.55 !important;
+      margin-bottom: 28px !important;
+      padding: 0 4px !important;
+    }
+
+    .hero-cta-group {
+      flex-direction: column !important;
+      gap: 12px !important;
+      width: 100% !important;
+    }
+
+    .hero-cta-group .btn {
+      width: 100% !important;
+      justify-content: center !important;
+      padding: 15px 20px !important;
+      font-size: 15px !important;
+    }
+
+    .hero-stats-row {
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+      margin-top: 36px !important;
+      padding: 16px !important;
+      background: var(--bg-surface) !important;
+      border-radius: var(--radius-md) !important;
+    }
+
+    .stat-col {
+      padding: 10px 0 !important;
+      border-right: none !important;
+      border-bottom: 1px solid var(--border-hairline) !important;
+      text-align: center !important;
+    }
+
+    .stat-col:last-child {
+      border-bottom: none !important;
+    }
+
+    .stat-number {
+      font-size: 28px !important;
+    }
+
+    .stat-label {
+      font-size: 12px !important;
+    }
+
+    /* 3. Section Headers */
+    .section-header {
+      margin-bottom: 36px !important;
+    }
+
+    .section-title {
+      font-size: clamp(24px, 7vw, 34px) !important;
+      line-height: 1.18 !important;
+    }
+
+    .section-subhead {
+      font-size: 14px !important;
+    }
+
+    /* 4. Projects Showcase Mobile */
+    .projects-grid {
+      grid-template-columns: 1fr !important;
+      gap: 20px !important;
+    }
+
+    .project-card {
+      padding: 14px !important;
+      border-radius: 18px !important;
+    }
+
+    .project-card-title {
+      font-size: 17px !important;
+    }
+
+    .project-top-meta .badge-mono {
+      font-size: 10px !important;
+      padding: 2px 8px !important;
+    }
+
+    #toggleProjectsBtn {
+      width: 100% !important;
+      max-width: 320px !important;
+      margin: 0 auto !important;
+      padding: 14px 20px !important;
+      justify-content: center !important;
+    }
+
+    /* 5. Services 2-Column Split Layout */
+    .services-split-layout {
+      flex-direction: column !important;
+      gap: 36px !important;
+    }
+
+    .services-left-col, .services-right-col {
+      width: 100% !important;
+      flex: none !important;
+    }
+
+    .services-big-heading {
+      font-size: clamp(26px, 7.5vw, 36px) !important;
+      line-height: 1.15 !important;
+    }
+
+    .tech-stack-icons-row {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 10px !important;
+      width: 100% !important;
+    }
+
+    .tech-icon-pill {
+      width: 100% !important;
+      height: 48px !important;
+      justify-content: center !important;
+    }
+
+    .speak-widget-pill {
+      width: 100% !important;
+      padding: 16px !important;
+      border-radius: 20px !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 14px !important;
+    }
+
+    .speak-widget-actions {
+      width: 100% !important;
+      display: flex !important;
+      gap: 8px !important;
+    }
+
+    .speak-widget-actions .btn {
+      flex: 1 !important;
+      justify-content: center !important;
+      padding: 10px 8px !important;
+      font-size: 12px !important;
+    }
+
+    .service-row-card {
+      padding: 16px 14px !important;
+      border-radius: 16px !important;
+    }
+
+    .service-icon-circle {
+      width: 42px !important;
+      height: 42px !important;
+      min-width: 42px !important;
+    }
+
+    .service-icon-circle svg {
+      width: 18px !important;
+      height: 18px !important;
+    }
+
+    .service-row-title {
+      font-size: 15px !important;
+    }
+
+    .service-row-desc {
+      font-size: 13px !important;
+    }
+
+    /* 6. Comparison Section */
+    .comparison-grid {
+      grid-template-columns: 1fr !important;
+      gap: 20px !important;
+    }
+
+    .comp-card {
+      padding: 22px 18px !important;
+      border-radius: 18px !important;
+    }
+
+    .comp-title {
+      font-size: 22px !important;
+    }
+
+    .comp-list li {
+      font-size: 14px !important;
+    }
+
+    /* 7. Pricing Deck */
+    .pricing-grid {
+      grid-template-columns: 1fr !important;
+      gap: 20px !important;
+    }
+
+    .pricing-card {
+      padding: 24px 18px !important;
+      border-radius: 20px !important;
+    }
+
+    .pricing-card.featured {
+      transform: none !important;
+    }
+
+    .price-num {
+      font-size: 36px !important;
+    }
+
+    .pricing-card .btn {
+      width: 100% !important;
+      padding: 14px 20px !important;
+      font-size: 15px !important;
+    }
+
+    /* 8. Process Steps */
+    .process-grid {
+      grid-template-columns: 1fr !important;
+      gap: 14px !important;
+    }
+
+    .process-card {
+      padding: 20px 16px !important;
+      border-radius: 16px !important;
+    }
+
+    /* 9. Testimonials */
+    .testimonials-grid {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+
+    .testimonial-card {
+      padding: 20px 16px !important;
+      border-radius: 16px !important;
+    }
+
+    /* 10. FAQs */
+    .faq-question-btn {
+      padding: 16px 14px !important;
+      font-size: 14px !important;
+    }
+
+    .faq-answer-panel {
+      padding: 0 14px 16px !important;
+      font-size: 13.5px !important;
+    }
+
+    /* 11. Contact & Founder Lines */
+    .contact-split-grid {
+      grid-template-columns: 1fr !important;
+      gap: 24px !important;
+    }
+
+    .contact-form-card, .contact-direct-card {
+      padding: 22px 16px !important;
+      border-radius: 18px !important;
+    }
+
+    .contact-input-field input,
+    .contact-input-field select,
+    .contact-input-field textarea {
+      font-size: 16px !important; /* Crucial: Prevents iOS Safari auto-zoom */
+      padding: 12px 14px !important;
+    }
+
+    /* 12. Footer */
+    .footer-main-row {
+      flex-direction: column !important;
+      gap: 28px !important;
+    }
+
+    /* 13. Live In-App Project Preview Modal Mobile */
+    .preview-top-bar {
+      height: 54px !important;
+      padding: 0 12px !important;
+    }
+
+    .btn-back-home {
+      padding: 8px 12px !important;
+      font-size: 12px !important;
+      gap: 6px !important;
+    }
+
+    .preview-frame-container {
+      height: calc(100vh - 54px) !important;
+    }
+
+    /* 14. Floating AI Assistant Widget */
+    .ai-chat-launcher {
+      bottom: 16px !important;
+      right: 14px !important;
+      padding: 8px 14px !important;
+    }
+
+    .ai-launcher-text {
+      font-size: 12px !important;
+    }
+
+    .ai-chat-modal {
+      bottom: 64px !important;
+      right: 10px !important;
+      left: 10px !important;
+      width: calc(100vw - 20px) !important;
+      max-width: calc(100vw - 20px) !important;
+      height: 480px !important;
+      max-height: 75vh !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -2810,16 +3208,28 @@
     }
   }
 
-  // Keyboard shortcut: Press Escape to close preview or chatbot
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeProjectPreview();
-      const aiModal = document.getElementById('aiChatModal');
-      if (aiModal && aiModal.classList.contains('open')) {
-        aiModal.classList.remove('open');
+  // 10. Mobile Menu Drawer Navigation Handler
+  const mobileToggleBtn = document.getElementById('mobileToggleBtn');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+
+  if (mobileToggleBtn && mobileDrawer) {
+    mobileToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileDrawer.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!mobileDrawer.contains(e.target) && !mobileToggleBtn.contains(e.target)) {
+        mobileDrawer.classList.remove('open');
       }
+    });
+  }
+
+  function closeMobileMenu() {
+    if (mobileDrawer) {
+      mobileDrawer.classList.remove('open');
     }
-  });
+  }
 </script>
 
 </body>
