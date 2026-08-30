@@ -577,9 +577,20 @@
     color: var(--text-secondary);
     background: var(--bg-card);
     border: 1px solid var(--border-hairline);
-    padding: 10px 20px;
+    padding: 10px 22px;
     border-radius: var(--radius-full);
     white-space: nowrap;
+    cursor: pointer;
+    transition: var(--transition);
+    user-select: none;
+  }
+
+  .marquee-item:hover {
+    background: var(--accent-purple);
+    color: #FFFFFF;
+    border-color: var(--accent-purple);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 20px var(--accent-purple-glow);
   }
 
   .marquee-item span.dot {
@@ -587,6 +598,12 @@
     height: 6px;
     border-radius: 50%;
     background: var(--accent-purple);
+    transition: var(--transition);
+  }
+
+  .marquee-item:hover span.dot {
+    background: #FFFFFF;
+    box-shadow: 0 0 8px #FFFFFF;
   }
 
   /* FEATURED CASE STUDIES / WORK SHOWCASE */
@@ -2490,25 +2507,61 @@
     }
   ];
 
-  // Marquee categories data
+  // Marquee categories data with respective project indexes and URLs
   const marqueeItems = [
-    "B2B TEXTILE & WHOLESALE",
-    "BAKERY & FOOD STOREFRONTS",
-    "FINANCE & LOAN PLATFORMS",
-    "REAL ESTATE PLATFORMS",
-    "FASHION & MULTIBRAND E-COMMERCE",
-    "CHARITY & DONATION WEBSITES",
-    "LUXURY JEWELLERY STORES",
-    "HIGH-CONVERTING LANDING PAGES"
+    {
+      name: "B2B TEXTILE & WHOLESALE",
+      projectIndex: 0,
+      link: "https://blanket-hub.vercel.app/"
+    },
+    {
+      name: "BAKERY & FOOD STOREFRONTS",
+      projectIndex: 1,
+      link: "https://sweet-crafted-visions.lovable.app/"
+    },
+    {
+      name: "FINANCE & LOAN PLATFORMS",
+      projectIndex: 2,
+      link: "https://rightway-finance-hub.lovable.app"
+    },
+    {
+      name: "REAL ESTATE PLATFORMS",
+      projectIndex: 3,
+      link: "https://shiv-atuk2opes-gargi3115.vercel.app/#home"
+    },
+    {
+      name: "FASHION & MULTIBRAND E-COMMERCE",
+      projectIndex: 4,
+      link: "https://prime-chic-studio.lovable.app"
+    },
+    {
+      name: "CHARITY & DONATION WEBSITES",
+      projectIndex: 5,
+      link: "https://flood-relief-sigma.vercel.app/"
+    },
+    {
+      name: "LUXURY JEWELLERY STORES",
+      projectIndex: 6,
+      link: "https://e-commerce-website-five-woad-92.vercel.app/"
+    },
+    {
+      name: "HIGH-CONVERTING LANDING PAGES",
+      projectIndex: 0,
+      link: "https://blanket-hub.vercel.app/"
+    }
   ];
 
-  // 1. Populate Infinite Marquee
+  // 1. Populate Infinite Marquee with direct click redirection to live sites
   const marqueeTrack = document.getElementById('marqueeTrack');
   const doubleMarquee = [...marqueeItems, ...marqueeItems, ...marqueeItems];
   doubleMarquee.forEach(item => {
     const el = document.createElement('div');
     el.className = 'marquee-item';
-    el.innerHTML = `<span class="dot"></span> ${item}`;
+    el.innerHTML = `<span class="dot"></span> ${item.name} <span style="font-size:10px; opacity:0.6; margin-left:4px;">↗</span>`;
+    el.title = `Click to view ${item.name}`;
+    el.onclick = () => {
+      openProjectPreview(item.projectIndex);
+    };
     marqueeTrack.appendChild(el);
   });
 
