@@ -2091,11 +2091,11 @@
       scroll-snap-type: x mandatory !important;
       scrollbar-width: none !important;
       -webkit-overflow-scrolling: touch !important;
-      gap: 16px !important;
-      padding: 12px 6px 16px !important;
+      gap: 14px !important;
+      padding: 14px 6px 16px !important;
       margin: 0 -18px !important;
-      padding-left: 18px !important;
-      padding-right: 18px !important;
+      padding-left: calc(50vw - 145px) !important;
+      padding-right: calc(50vw - 145px) !important;
     }
 
     .pricing-deck::-webkit-scrollbar {
@@ -2103,13 +2103,13 @@
     }
 
     .pricing-box {
-      width: calc(100vw - 52px) !important;
-      min-width: calc(100vw - 52px) !important;
-      max-width: 380px !important;
+      width: 285px !important;
+      min-width: 275px !important;
+      max-width: 285px !important;
       flex-shrink: 0 !important;
       scroll-snap-align: center !important;
-      padding: 32px 20px 24px !important;
-      border-radius: 20px !important;
+      padding: 24px 18px 20px !important;
+      border-radius: 18px !important;
       box-sizing: border-box !important;
     }
 
@@ -2117,14 +2117,50 @@
       transform: none !important;
     }
 
+    .plan-tier-label {
+      font-size: 11px !important;
+      margin-bottom: 6px !important;
+    }
+
     .plan-price-val {
-      font-size: 38px !important;
+      font-size: 32px !important;
+      margin-bottom: 8px !important;
+    }
+
+    .plan-desc-text {
+      font-size: 13px !important;
+      margin-bottom: 16px !important;
+      min-height: auto !important;
+      line-height: 1.45 !important;
+    }
+
+    .plan-features-list {
+      gap: 9px !important;
+      margin-bottom: 20px !important;
+    }
+
+    .plan-features-list li {
+      font-size: 12.5px !important;
+      gap: 8px !important;
+      line-height: 1.35 !important;
+    }
+
+    .plan-features-list li svg {
+      width: 15px !important;
+      height: 15px !important;
     }
 
     .pricing-box .btn {
       width: 100% !important;
-      padding: 14px 20px !important;
-      font-size: 15px !important;
+      padding: 11px 16px !important;
+      font-size: 13.5px !important;
+    }
+
+    .pricing-top-pill {
+      top: -11px !important;
+      left: 16px !important;
+      padding: 4px 12px !important;
+      font-size: 10px !important;
     }
 
     .pricing-carousel-dots {
