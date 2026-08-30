@@ -2050,29 +2050,105 @@
       font-size: 14px !important;
     }
 
-    /* 7. Pricing Deck */
-    .pricing-grid {
-      grid-template-columns: 1fr !important;
-      gap: 20px !important;
+    /* 7. Pricing Deck (Mobile Quick Tabs + Horizontal Snap Carousel) */
+    .mobile-pricing-tabs {
+      display: flex !important;
+      background: var(--bg-surface) !important;
+      border: 1px solid var(--border-card) !important;
+      border-radius: var(--radius-full) !important;
+      padding: 4px !important;
+      gap: 4px !important;
+      margin: 0 auto 20px !important;
+      width: 100% !important;
+      max-width: 440px !important;
     }
 
-    .pricing-card {
-      padding: 24px 18px !important;
+    .pricing-tab-btn {
+      flex: 1 !important;
+      padding: 9px 8px !important;
+      border-radius: var(--radius-full) !important;
+      border: none !important;
+      background: transparent !important;
+      color: var(--text-secondary) !important;
+      font-family: var(--font-sans) !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      cursor: pointer !important;
+      text-align: center !important;
+      transition: var(--transition) !important;
+      white-space: nowrap !important;
+    }
+
+    .pricing-tab-btn.active {
+      background: var(--accent-purple) !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 14px var(--accent-purple-glow) !important;
+    }
+
+    .pricing-deck {
+      display: flex !important;
+      overflow-x: auto !important;
+      scroll-snap-type: x mandatory !important;
+      scrollbar-width: none !important;
+      -webkit-overflow-scrolling: touch !important;
+      gap: 16px !important;
+      padding: 12px 6px 16px !important;
+      margin: 0 -18px !important;
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+    }
+
+    .pricing-deck::-webkit-scrollbar {
+      display: none !important;
+    }
+
+    .pricing-box {
+      width: calc(100vw - 52px) !important;
+      min-width: calc(100vw - 52px) !important;
+      max-width: 380px !important;
+      flex-shrink: 0 !important;
+      scroll-snap-align: center !important;
+      padding: 32px 20px 24px !important;
       border-radius: 20px !important;
+      box-sizing: border-box !important;
     }
 
-    .pricing-card.featured {
+    .pricing-box.featured {
       transform: none !important;
     }
 
-    .price-num {
-      font-size: 36px !important;
+    .plan-price-val {
+      font-size: 38px !important;
     }
 
-    .pricing-card .btn {
+    .pricing-box .btn {
       width: 100% !important;
       padding: 14px 20px !important;
       font-size: 15px !important;
+    }
+
+    .pricing-carousel-dots {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      margin-top: 14px !important;
+    }
+
+    .dot-indicator {
+      width: 8px !important;
+      height: 8px !important;
+      border-radius: 50% !important;
+      background: rgba(255, 255, 255, 0.2) !important;
+      cursor: pointer !important;
+      transition: var(--transition) !important;
+    }
+
+    .dot-indicator.active {
+      width: 24px !important;
+      border-radius: var(--radius-full) !important;
+      background: var(--accent-purple) !important;
+      box-shadow: 0 0 10px var(--accent-purple-glow) !important;
     }
 
     /* 8. Process Steps */
@@ -2531,9 +2607,16 @@
     <p class="section-subtitle">Predictable packages with no hidden extras. Choose the plan that matches your current growth stage.</p>
   </div>
 
-  <div class="pricing-deck reveal">
+  <!-- Mobile Quick Plan Tabs Switcher -->
+  <div class="mobile-pricing-tabs reveal" id="mobilePricingTabs">
+    <button class="pricing-tab-btn" onclick="selectPricingPlan(0)" id="tabPlan0">Starter (₹5.9k)</button>
+    <button class="pricing-tab-btn active" onclick="selectPricingPlan(1)" id="tabPlan1">⭐ Business (₹9.9k)</button>
+    <button class="pricing-tab-btn" onclick="selectPricingPlan(2)" id="tabPlan2">Growth (₹15.9k)</button>
+  </div>
+
+  <div class="pricing-deck reveal" id="pricingDeck">
     <!-- Starter -->
-    <div class="pricing-box">
+    <div class="pricing-box" id="pricingCard0">
       <div>
         <div class="plan-tier-label">Starter Plan</div>
         <div class="plan-price-val">₹5,999</div>
@@ -2552,7 +2635,7 @@
     </div>
 
     <!-- Business (Featured) -->
-    <div class="pricing-box featured">
+    <div class="pricing-box featured" id="pricingCard1">
       <div class="pricing-top-pill">Most Popular</div>
       <div>
         <div class="plan-tier-label">Business Plan</div>
@@ -2572,7 +2655,7 @@
     </div>
 
     <!-- Growth -->
-    <div class="pricing-box">
+    <div class="pricing-box" id="pricingCard2">
       <div>
         <div class="plan-tier-label">Growth / Custom</div>
         <div class="plan-price-val">₹15,999</div>
@@ -2589,6 +2672,13 @@
         Select Growth Plan
       </a>
     </div>
+  </div>
+
+  <!-- Mobile Carousel Dots Indicator -->
+  <div class="pricing-carousel-dots reveal" id="pricingDots">
+    <span class="dot-indicator" onclick="selectPricingPlan(0)"></span>
+    <span class="dot-indicator active" onclick="selectPricingPlan(1)"></span>
+    <span class="dot-indicator" onclick="selectPricingPlan(2)"></span>
   </div>
 </section>
 
@@ -3225,11 +3315,58 @@
     });
   }
 
-  function closeMobileMenu() {
-    if (mobileDrawer) {
-      mobileDrawer.classList.remove('open');
+  // 11. Mobile Pricing Carousel & Tabs Controller
+  function selectPricingPlan(index) {
+    const deck = document.getElementById('pricingDeck');
+    const cards = document.querySelectorAll('.pricing-box');
+    const tabs = document.querySelectorAll('.pricing-tab-btn');
+    const dots = document.querySelectorAll('.dot-indicator');
+
+    if (cards[index] && deck) {
+      cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
+
+    tabs.forEach((tab, i) => tab.classList.toggle('active', i === index));
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
   }
+
+  const pricingDeckEl = document.getElementById('pricingDeck');
+  if (pricingDeckEl) {
+    pricingDeckEl.addEventListener('scroll', () => {
+      const cards = document.querySelectorAll('.pricing-box');
+      const tabs = document.querySelectorAll('.pricing-tab-btn');
+      const dots = document.querySelectorAll('.dot-indicator');
+      const deckRect = pricingDeckEl.getBoundingClientRect();
+      const centerX = deckRect.left + deckRect.width / 2;
+
+      let closestIndex = 0;
+      let minDistance = Infinity;
+
+      cards.forEach((card, i) => {
+        const cardRect = card.getBoundingClientRect();
+        const cardCenterX = cardRect.left + cardRect.width / 2;
+        const distance = Math.abs(centerX - cardCenterX);
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = i;
+        }
+      });
+
+      tabs.forEach((tab, i) => tab.classList.toggle('active', i === closestIndex));
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === closestIndex));
+    }, { passive: true });
+  }
+
+  // Keyboard shortcut: Press Escape to close preview or chatbot
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeProjectPreview();
+      const aiModal = document.getElementById('aiChatModal');
+      if (aiModal && aiModal.classList.contains('open')) {
+        aiModal.classList.remove('open');
+      }
+    }
+  });
 </script>
 
 </body>
