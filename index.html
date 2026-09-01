@@ -7,57 +7,45 @@
 <meta name="description" content="Sharvonix designs and builds high-converting, custom digital experiences for ambitious brands and growing businesses. Websites starting from ₹5,999. Direct founder-level support.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   :root {
-    --bg-dark: #09090D;
-    --bg-surface: #111118;
-    --bg-card: #161622;
-    --bg-card-hover: #1C1C2C;
-    --bg-alt: #0D0D14;
-    
-    --text-primary: #FFFFFF;
-    --text-secondary: #9E9AA8;
-    --text-muted: #666373;
-    
-    --accent-purple: #6C4DFF;
-    --accent-purple-glow: rgba(108, 77, 255, 0.4);
-    --accent-purple-soft: rgba(108, 77, 255, 0.12);
-    --accent-green: #22C55E;
-    --accent-green-soft: rgba(34, 197, 94, 0.12);
-    
-    --border-hairline: rgba(255, 255, 255, 0.08);
-    --border-card: rgba(255, 255, 255, 0.12);
-    --border-accent: rgba(108, 77, 255, 0.35);
-    
-    --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* ── Light & Premium Theme ── */
+    --bg-dark: #FAFAF8;
+    --bg-surface: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #F3F1EC;
+    --bg-alt: #F3F1EC;
+
+    --text-primary: #1A1A1A;
+    --text-secondary: #6B6B6B;
+    --text-muted: #9A9A94;
+
+    /* Accent: Deep Navy + Soft Gold */
+    --accent-purple: #2B3A67;
+    --accent-purple-glow: rgba(43, 58, 103, 0.25);
+    --accent-purple-soft: rgba(43, 58, 103, 0.08);
+    --accent-highlight: #D4AF37;
+    --accent-highlight-soft: rgba(212, 175, 55, 0.15);
+    --accent-green: #2D6A4F;
+    --accent-green-soft: rgba(45, 106, 79, 0.12);
+
+    --border-hairline: #E8E6E1;
+    --border-card: #E8E6E1;
+    --border-accent: rgba(43, 58, 103, 0.3);
+
+    --font-heading: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
-    
+
     --radius-sm: 8px;
     --radius-md: 14px;
     --radius-lg: 22px;
     --radius-full: 9999px;
-    
+
     --container: 1200px;
     --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  [data-theme="light"] {
-    --bg-dark: #F8F7FC;
-    --bg-surface: #FFFFFF;
-    --bg-card: #FFFFFF;
-    --bg-card-hover: #F2EFFC;
-    --bg-alt: #F0EDF7;
-    
-    --text-primary: #0B0B12;
-    --text-secondary: #575466;
-    --text-muted: #8E8A9C;
-    
-    --border-hairline: rgba(0, 0, 0, 0.08);
-    --border-card: rgba(0, 0, 0, 0.1);
-    --border-accent: rgba(108, 77, 255, 0.4);
   }
 
   * {
@@ -86,19 +74,16 @@
     color: #FFFFFF;
   }
 
-  /* Grid lines background overlay */
-  .grid-overlay {
+  /* Suppress old dark-mode theme toggle — light is now the default */
+  [data-theme="light"] { /* kept for JS compat, same as root */ }
+
+  /* MagicUI-style Dot Pattern background */
+  .dot-pattern {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: 
-      linear-gradient(to right, var(--border-hairline) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--border-hairline) 1px, transparent 1px);
-    background-size: 64px 64px;
-    mask-image: radial-gradient(circle at 50% 30%, black 40%, transparent 80%);
-    -webkit-mask-image: radial-gradient(circle at 50% 30%, black 40%, transparent 80%);
     pointer-events: none;
     z-index: 0;
   }
@@ -114,9 +99,9 @@
   /* Typography */
   h1, h2, h3, h4 {
     font-family: var(--font-heading);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
     color: var(--text-primary);
   }
 
@@ -201,20 +186,21 @@
   }
 
   .btn-primary {
-    background: linear-gradient(135deg, #6C4DFF 0%, #5835F7 100%);
+    background: var(--accent-purple);
     color: #FFFFFF;
     box-shadow: 0 4px 20px var(--accent-purple-glow);
+    letter-spacing: 0.01em;
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(108, 77, 255, 0.6);
-    background: linear-gradient(135deg, #7C5EFF 0%, #6845FF 100%);
+    box-shadow: 0 8px 30px rgba(43, 58, 103, 0.35);
+    background: #1E2B52;
   }
 
   .btn-outline {
-    background: var(--bg-card);
-    border: 1px solid var(--border-card);
+    background: var(--bg-surface);
+    border: 1.5px solid var(--border-card);
     color: var(--text-primary);
   }
 
@@ -222,7 +208,7 @@
     border-color: var(--accent-purple);
     color: var(--accent-purple);
     transform: translateY(-2px);
-    background: var(--bg-card-hover);
+    background: var(--accent-purple-soft);
   }
 
   /* NAVBAR (Floating Pill style) */
@@ -233,9 +219,9 @@
     transform: translateX(-50%);
     width: calc(100% - 40px);
     max-width: 1080px;
-    background: rgba(15, 15, 23, 0.82);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border-card);
     border-radius: var(--radius-full);
     padding: 10px 20px;
@@ -243,13 +229,8 @@
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
     transition: var(--transition);
-  }
-
-  [data-theme="light"] nav.navbar {
-    background: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   }
 
   .nav-brand {
@@ -262,7 +243,7 @@
     width: 36px;
     height: 36px;
     border-radius: 10px;
-    background: linear-gradient(135deg, var(--accent-purple), #9E86FF);
+    background: linear-gradient(135deg, var(--accent-purple), #3D5080);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -302,25 +283,6 @@
     display: flex;
     align-items: center;
     gap: 12px;
-  }
-
-  .theme-toggle-btn {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    border: 1px solid var(--border-hairline);
-    background: var(--bg-card);
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: var(--transition);
-  }
-
-  .theme-toggle-btn:hover {
-    border-color: var(--accent-purple);
-    transform: scale(1.05);
   }
 
   .mobile-toggle-btn {
@@ -392,9 +354,9 @@
     transform: translateX(-50%);
     width: 700px;
     height: 500px;
-    background: radial-gradient(circle, var(--accent-purple-glow) 0%, transparent 70%);
-    filter: blur(100px);
-    opacity: 0.5;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(43, 58, 103, 0.07) 50%, transparent 70%);
+    filter: blur(80px);
+    opacity: 0.8;
     pointer-events: none;
     z-index: 0;
   }
@@ -425,15 +387,10 @@
   }
 
   .hero-headline span.gradient-text {
-    background: linear-gradient(135deg, #FFFFFF 30%, #9E86FF 100%);
+    background: linear-gradient(135deg, #1A1A1A 20%, #2B3A67 60%, #D4AF37 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
-
-  [data-theme="light"] .hero-headline span.gradient-text {
-    background: linear-gradient(135deg, #0B0B12 30%, #5835F7 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .hero-subhead {
@@ -461,7 +418,7 @@
     border: 1px solid var(--border-card);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   }
 
   @media (max-width: 768px) {
@@ -512,6 +469,13 @@
     stroke: var(--accent-purple);
   }
 
+  .stat-icon-wrap.gold {
+    background: var(--accent-highlight-soft);
+    border-color: rgba(212, 175, 55, 0.3);
+    color: var(--accent-highlight);
+  }
+  .stat-icon-wrap.gold svg { stroke: var(--accent-highlight); }
+
   .stat-info-text {
     font-size: 14px;
     font-weight: 600;
@@ -520,8 +484,8 @@
     line-height: 1.35;
   }
 
-  /* INFINITE MARQUEE STRIP (Hexin Style) */
-  .marquee-wrapper {
+  /* ── Website Showcase: Wide Clean Screenshot Cards Slider ── */
+  .showcase-slider-wrapper {
     position: relative;
     padding: 30px 0;
     overflow: hidden;
@@ -530,216 +494,269 @@
     border-bottom: 1px solid var(--border-hairline);
   }
 
-  .marquee-wrapper::before, .marquee-wrapper::after {
+  /* Fade edges */
+  .showcase-slider-wrapper::before,
+  .showcase-slider-wrapper::after {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 120px;
-    z-index: 2;
+    width: 140px;
+    z-index: 6;
     pointer-events: none;
   }
-
-  .marquee-wrapper::before {
+  .showcase-slider-wrapper::before {
     left: 0;
-    background: linear-gradient(90deg, var(--bg-dark), transparent);
+    background: linear-gradient(90deg, var(--bg-alt) 0%, transparent 100%);
   }
-
-  .marquee-wrapper::after {
+  .showcase-slider-wrapper::after {
     right: 0;
-    background: linear-gradient(270deg, var(--bg-dark), transparent);
+    background: linear-gradient(270deg, var(--bg-alt) 0%, transparent 100%);
   }
 
-  .marquee-track {
+  .showcase-track {
     display: flex;
-    gap: 40px;
+    gap: 22px;
     width: max-content;
-    animation: marqueeScroll 35s linear infinite;
+    animation: showcaseScroll 36s linear infinite;
   }
 
-  .marquee-wrapper:hover .marquee-track {
+  .showcase-slider-wrapper:hover .showcase-track {
     animation-play-state: paused;
   }
 
-  @keyframes marqueeScroll {
+  @keyframes showcaseScroll {
     from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    to   { transform: translateX(-50%); }
   }
 
-  .marquee-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-family: var(--font-mono);
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-secondary);
-    background: var(--bg-card);
-    border: 1px solid var(--border-hairline);
-    padding: 10px 22px;
-    border-radius: var(--radius-full);
-    white-space: nowrap;
+  /* Wide clean screenshot card */
+  .showcase-card {
+    position: relative;
+    width: 290px;
+    height: 185px;
+    border-radius: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
     cursor: pointer;
-    transition: var(--transition);
-    user-select: none;
-  }
-
-  .marquee-item:hover {
-    background: var(--accent-purple);
-    color: #FFFFFF;
-    border-color: var(--accent-purple);
-    transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 6px 20px var(--accent-purple-glow);
-  }
-
-  .marquee-item span.dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent-purple);
-    transition: var(--transition);
-  }
-
-  .marquee-item:hover span.dot {
-    background: #FFFFFF;
-    box-shadow: 0 0 8px #FFFFFF;
-  }
-
-  /* FEATURED CASE STUDIES / WORK SHOWCASE */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 32px;
-  }
-
-  .project-card {
-    background: var(--bg-card);
     border: 1px solid var(--border-card);
-    border-radius: var(--radius-lg);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+    background: var(--bg-card);
+    box-shadow: 0 4px 18px rgba(43, 58, 103, 0.08);
     transition: var(--transition);
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
+    text-decoration: none;
   }
 
-  .project-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--border-accent);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  .showcase-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 16px 36px rgba(43, 58, 103, 0.18);
+    border-color: var(--accent-purple);
   }
 
-  .project-media-box {
-    width: 100%;
-    aspect-ratio: 16/10;
-    border-radius: var(--radius-md);
-    background: var(--bg-surface);
-    border: 1px solid var(--border-hairline);
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-
-  .project-media-box img {
+  /* Screenshot image */
+  .showcase-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    object-position: top;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    display: block;
   }
 
-  .project-card:hover .project-media-box img {
-    transform: scale(1.04);
+  .showcase-card:hover img {
+    transform: scale(1.05);
   }
 
-  .placeholder-screenshot-box {
+  /* Top-right arrow badge */
+  .showcase-card-arrow {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--accent-highlight);
+    color: #1A1A1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+    z-index: 5;
+  }
+
+  .showcase-card:hover .showcase-card-arrow {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Placeholder card when no image */
+  .showcase-card-placeholder {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    padding: 30px;
-    text-align: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-alt));
     color: var(--text-muted);
   }
-
-  .placeholder-screenshot-box svg {
-    width: 36px;
-    height: 36px;
-    stroke: var(--text-muted);
-    opacity: 0.6;
+  .showcase-card-placeholder svg {
+    width: 32px; height: 32px;
+    stroke: var(--border-accent);
+    opacity: 0.4;
   }
-
-  .placeholder-screenshot-box span {
+  .showcase-card-placeholder span {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
 
+  /* ── Project Grid: equal 3-col, name above card ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  @media (max-width: 900px) {
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Wrapper: label on top, card below */
+  .project-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Label row above card */
+  .project-label-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 0 2px;
+  }
+
+  .project-sample-name {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  .project-sample-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* The image card itself */
+  .project-card {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    aspect-ratio: 16 / 10;
+    transition: var(--transition);
+  }
+
+  .project-card:hover {
+    box-shadow: 0 12px 36px rgba(43, 58, 103, 0.15);
+    transform: translateY(-4px);
+    border-color: var(--accent-purple);
+  }
+
+  /* Full-bleed image fills the card */
+  .project-card-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .project-card:hover .project-card-img {
+    transform: scale(1.04);
+  }
+
+  /* Light scrim at top so image doesn't feel raw */
+  .project-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(43,58,103,0.04) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  /* Arrow badge top-right on hover */
   .project-arrow-badge {
     position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 40px;
-    height: 40px;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    background: var(--accent-purple);
-    color: #fff;
+    background: var(--accent-highlight);
+    color: #1A1A1A;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 700;
+    z-index: 3;
     opacity: 0;
-    transform: translateY(-8px);
+    transform: scale(0.6);
     transition: var(--transition);
-    box-shadow: 0 4px 14px var(--accent-purple-glow);
+    box-shadow: 0 4px 12px rgba(212,175,55,0.35);
   }
 
   .project-card:hover .project-arrow-badge {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
   }
 
-  .project-card-details {
+  /* Placeholder when no image */
+  .project-card-placeholder {
+    position: absolute;
+    inset: 0;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-  }
-
-  .project-top-meta {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 4px;
-  }
-
-  .project-num-tag {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--accent-purple);
-    letter-spacing: 0.08em;
-  }
-
-  .project-cat-tag {
-    font-size: 12px;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-alt));
     color: var(--text-muted);
-    font-weight: 500;
+  }
+  .project-card-placeholder svg {
+    width: 30px; height: 30px;
+    stroke: var(--border-accent);
+    opacity: 0.4;
+  }
+  .project-card-placeholder span {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
-  .project-card-title {
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: var(--text-primary);
-  }
+  /* removed old overlay/info/num-badge/tag/title inside-card styles */
 
   /* COMPARISON: OLD WAY VS SHARVONIX WAY (Hexin Style) */
   .comparison-container {
@@ -780,9 +797,9 @@
   }
 
   .comp-card.traditional .comp-card-badge {
-    background: rgba(239, 68, 68, 0.12);
-    color: #EF4444;
-    border: 1px solid rgba(239, 68, 68, 0.25);
+    background: rgba(193, 18, 31, 0.08);
+    color: #C1121F;
+    border: 1px solid rgba(193, 18, 31, 0.2);
   }
 
   .comp-card.highlight .comp-card-badge {
@@ -947,8 +964,8 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: #111118;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: var(--accent-purple);
+    border: 1px solid var(--accent-purple);
     color: #FFFFFF;
     display: flex;
     align-items: center;
@@ -958,8 +975,8 @@
   }
 
   .speak-act-circle:hover {
-    background: var(--accent-purple);
-    border-color: var(--accent-purple);
+    background: #1E2B52;
+    border-color: #1E2B52;
     transform: scale(1.08);
   }
 
@@ -997,26 +1014,21 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: #0B0B10;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: var(--accent-purple-soft);
+    border: 1.5px solid var(--border-accent);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FFFFFF;
+    color: var(--accent-purple);
     flex-shrink: 0;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 2px 10px rgba(43, 58, 103, 0.1);
     transition: var(--transition);
-  }
-
-  [data-theme="light"] .service-circle-icon {
-    background: #181822;
-    color: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   .service-timeline-row:hover .service-circle-icon {
     background: var(--accent-purple);
     border-color: var(--accent-purple);
+    color: #FFFFFF;
     box-shadow: 0 4px 20px var(--accent-purple-glow);
     transform: scale(1.08);
   }
@@ -1065,15 +1077,16 @@
 
   .process-box:hover {
     transform: translateY(-4px);
-    border-color: var(--border-accent);
+    border-color: var(--accent-purple);
+    box-shadow: 0 8px 28px rgba(43, 58, 103, 0.1);
   }
 
   .process-num-head {
     font-family: var(--font-mono);
     font-size: 32px;
     font-weight: 700;
-    color: var(--accent-purple);
-    opacity: 0.5;
+    color: var(--accent-highlight);
+    opacity: 0.7;
     margin-bottom: 14px;
   }
 
@@ -1118,21 +1131,21 @@
   .pricing-box:hover {
     transform: translateY(-6px);
     border-color: var(--accent-purple);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 36px rgba(43, 58, 103, 0.12);
   }
 
   .pricing-box.featured {
     border: 2px solid var(--accent-purple);
     background: linear-gradient(180deg, var(--accent-purple-soft) 0%, var(--bg-card) 30%);
-    box-shadow: 0 10px 40px rgba(108, 77, 255, 0.15);
+    box-shadow: 0 10px 40px rgba(43, 58, 103, 0.12);
   }
 
   .pricing-top-pill {
     position: absolute;
     top: -14px;
     left: 32px;
-    background: var(--accent-purple);
-    color: #FFFFFF;
+    background: var(--accent-highlight);
+    color: #1A1A1A;
     font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 700;
@@ -1140,7 +1153,7 @@
     padding: 6px 16px;
     border-radius: var(--radius-full);
     text-transform: uppercase;
-    box-shadow: 0 4px 12px var(--accent-purple-glow);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
   }
 
   .plan-tier-label {
@@ -1187,7 +1200,7 @@
   .plan-features-list li svg {
     width: 18px;
     height: 18px;
-    stroke: var(--accent-purple);
+    stroke: var(--accent-green);
     flex-shrink: 0;
   }
 
@@ -1235,12 +1248,19 @@
     justify-content: center;
     color: var(--accent-purple);
     font-size: 18px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background 0.2s ease;
     flex-shrink: 0;
   }
 
   .faq-card.active .faq-icon-cross {
+    background: var(--accent-purple);
+    color: #FFFFFF;
+  }
+
+  .faq-card.active .faq-icon-cross {
     transform: rotate(45deg);
+    background: var(--accent-purple);
+    color: #FFFFFF;
   }
 
   .faq-answer-panel {
@@ -1270,7 +1290,7 @@
     border: 1px solid var(--border-card);
     border-radius: var(--radius-lg);
     padding: 56px 44px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 32px rgba(43, 58, 103, 0.08);
   }
 
   @media (max-width: 860px) {
@@ -1314,7 +1334,7 @@
   .contact-input-field textarea:focus,
   .contact-input-field select:focus {
     border-color: var(--accent-purple);
-    box-shadow: 0 0 0 3px var(--accent-purple-soft);
+    box-shadow: 0 0 0 3px rgba(43, 58, 103, 0.1);
   }
 
   .contact-direct-card {
@@ -1342,14 +1362,14 @@
   }
 
   .phone-call-row a:hover {
-    color: var(--accent-purple);
+    color: var(--accent-highlight);
   }
 
   /* FOOTER */
   footer.site-footer {
     padding: 80px 0 40px;
     border-top: 1px solid var(--border-hairline);
-    background: var(--bg-dark);
+    background: var(--bg-alt);
   }
 
   .footer-main-row {
@@ -1405,6 +1425,7 @@
   .social-icon-btn:hover {
     border-color: var(--accent-purple);
     color: var(--accent-purple);
+    background: var(--accent-purple-soft);
     transform: translateY(-2px);
   }
 
@@ -1416,35 +1437,35 @@
     color: var(--text-muted);
   }
 
-  /* AI ASSISTANT CHATBOT (Hexin style widget) */
+  /* AI ASSISTANT CHATBOT widget */
   .ai-chat-launcher {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    background: #0E0E14;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: var(--accent-purple);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-full);
     padding: 10px 20px;
     display: flex;
     align-items: center;
     gap: 10px;
     cursor: pointer;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 30px rgba(43, 58, 103, 0.35);
     z-index: 998;
     transition: var(--transition);
   }
 
   .ai-chat-launcher:hover {
     transform: translateY(-3px);
-    border-color: rgba(255, 255, 255, 0.35);
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.8);
+    background: #1E2B52;
+    box-shadow: 0 14px 40px rgba(43, 58, 103, 0.5);
   }
 
   .ai-avatar-pulse {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-purple), #9E86FF);
+    background: rgba(255,255,255,0.15);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1455,7 +1476,7 @@
   .ai-launcher-text {
     font-size: 13px;
     font-weight: 600;
-    color: var(--text-primary);
+    color: #FFFFFF;
   }
 
   /* Chatbot Modal Dialog */
@@ -1523,6 +1544,7 @@
     background: var(--accent-purple);
     color: #FFFFFF;
     align-self: flex-end;
+    box-shadow: 0 2px 10px rgba(43, 58, 103, 0.2);
   }
 
   .chat-chips-group {
@@ -1580,6 +1602,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: var(--transition);
+  }
+  .chat-send-btn:hover {
+    background: #1E2B52;
   }
 
   /* Reveal Animations */
@@ -1654,9 +1680,9 @@
   }
 
   .btn-back-home:hover {
-    background: #7E62FF;
+    background: #1E2B52;
     transform: translateX(-3px);
-    box-shadow: 0 6px 20px rgba(108, 77, 255, 0.6);
+    box-shadow: 0 6px 20px rgba(43, 58, 103, 0.4);
   }
 
   .preview-title-wrap {
@@ -2285,8 +2311,26 @@
 </head>
 <body>
 
-<!-- Background Grid Lines -->
-<div class="grid-overlay"></div>
+<!-- MagicUI-style Dot Pattern Background -->
+<svg class="dot-pattern" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <!-- Dot grid tile: 20x20 cells with a 1.5px radius circle each -->
+    <pattern id="dot-grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1.2" fill="#2B3A67" opacity="0.22" />
+    </pattern>
+    <!-- Radial gradient mask: visible in center, fades to transparent at edges -->
+    <radialGradient id="dot-mask-gradient" cx="50%" cy="38%" r="55%" fx="50%" fy="38%">
+      <stop offset="0%"   stop-color="white" stop-opacity="1" />
+      <stop offset="55%"  stop-color="white" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="white" stop-opacity="0" />
+    </radialGradient>
+    <mask id="dot-mask">
+      <rect width="100%" height="100%" fill="url(#dot-mask-gradient)" />
+    </mask>
+  </defs>
+  <!-- Full viewport rectangle filled with the dot pattern, clipped by radial mask -->
+  <rect width="100%" height="100%" fill="url(#dot-grid)" mask="url(#dot-mask)" />
+</svg>
 
 <!-- FLOATING NAVBAR -->
 <nav class="navbar">
@@ -2305,19 +2349,6 @@
   </div>
 
   <div class="nav-right">
-    <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Theme" aria-label="Toggle Theme">
-      <svg id="themeIconSvg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="5"></circle>
-        <line x1="12" y1="1" x2="12" y2="3"></line>
-        <line x1="12" y1="21" x2="12" y2="23"></line>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-        <line x1="1" y1="12" x2="3" y2="12"></line>
-        <line x1="21" y1="12" x2="23" y2="12"></line>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-      </svg>
-    </button>
     <a href="#contact" class="btn btn-primary nav-cta-btn" style="padding: 10px 22px; font-size: 14px;">Book a Call</a>
     <button class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Open Navigation">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -2391,9 +2422,9 @@
   </div>
 </header>
 
-<!-- INFINITE MARQUEE STRIP -->
-<div class="marquee-wrapper">
-  <div class="marquee-track" id="marqueeTrack"></div>
+<!-- WEBSITE SHOWCASE IMAGE SLIDER -->
+<div class="showcase-slider-wrapper">
+  <div class="showcase-track" id="showcaseTrack"></div>
 </div>
 
 <!-- FEATURED WORK / PROJECTS -->
@@ -2988,108 +3019,77 @@
   // link: "https://your-website.com" (real live website ka URL)
   const projects = [
     {
-      title: "Wholesale Blanket Business",
+      title: "Real Estate Platform",
+      tag: "Real Estate / Property Listings",
+      image: "images/shiv-property.png",
+      link: "https://shiv-nine-gamma.vercel.app/"
+    },
+    {
+      title: "B2B Wholesale & Textile",
       tag: "B2B / Wholesale / Textile",
       image: "images/blanket-hub.png",
       link: "https://blanket-hub.vercel.app/"
     },
     {
-      title: "Channel 9 — Bakery & Patisserie Storefront",
-      tag: "Bakery / Food & Beverage / Retail",
+      title: "Bakery & Patisserie Storefront",
+      tag: "Bakery / Food & Beverage",
       image: "images/bakery-storefront.png",
       link: "https://sweet-crafted-visions.lovable.app/"
     },
     {
-      title: "Rightway — Loan & Finance Hub",
+      title: "Finance & Loan Hub",
       tag: "Finance / Loan Services / Fintech",
       image: "images/rightway-finance.png",
       link: "https://rightway-finance-hub.lovable.app"
     },
     {
-      title: "Shiv Property — Real Estate Platform",
-      tag: "Real Estate / Property Listings",
-      image: "images/shiv-property.png",
-      link: "https://shiv-atuk2opes-gargi3115.vercel.app/#home"
-    },
-    {
-      title: "Prime Chic — Multibrand Clothing Store",
-      tag: "E-commerce / Fashion & Apparel / Retail",
+      title: "Fashion & Apparel Store",
+      tag: "E-Commerce / Fashion & Apparel",
       image: "images/prime-chic.png",
       link: "https://prime-chic-studio.lovable.app"
     },
     {
-      title: "Flood Relief & Donation Platform",
-      tag: "Non-Profit / NGO / Flood Relief",
-      image: "images/flood-relief.png",
-      link: "https://flood-relief-sigma.vercel.app/"
-    },
-    {
-      title: "Roshni Creations — Jewellery Store",
-      tag: "E-commerce / Jewellery / Luxury Retail",
+      title: "Luxury Jewellery Store",
+      tag: "E-Commerce / Luxury Jewellery",
       image: "images/roshni-creations.png",
       link: "https://e-commerce-website-five-woad-92.vercel.app/"
     }
   ];
 
-  // Marquee categories data with respective project indexes and URLs
-  const marqueeItems = [
-    {
-      name: "B2B TEXTILE & WHOLESALE",
-      projectIndex: 0,
-      link: "https://blanket-hub.vercel.app/"
-    },
-    {
-      name: "BAKERY & FOOD STOREFRONTS",
-      projectIndex: 1,
-      link: "https://sweet-crafted-visions.lovable.app/"
-    },
-    {
-      name: "FINANCE & LOAN PLATFORMS",
-      projectIndex: 2,
-      link: "https://rightway-finance-hub.lovable.app"
-    },
-    {
-      name: "REAL ESTATE PLATFORMS",
-      projectIndex: 3,
-      link: "https://shiv-atuk2opes-gargi3115.vercel.app/#home"
-    },
-    {
-      name: "FASHION & MULTIBRAND E-COMMERCE",
-      projectIndex: 4,
-      link: "https://prime-chic-studio.lovable.app"
-    },
-    {
-      name: "CHARITY & DONATION WEBSITES",
-      projectIndex: 5,
-      link: "https://flood-relief-sigma.vercel.app/"
-    },
-    {
-      name: "LUXURY JEWELLERY STORES",
-      projectIndex: 6,
-      link: "https://e-commerce-website-five-woad-92.vercel.app/"
-    },
-    {
-      name: "HIGH-CONVERTING LANDING PAGES",
-      projectIndex: 0,
-      link: "https://blanket-hub.vercel.app/"
-    }
-  ];
+  // 1. Build Website Showcase Image Slider (Clean Wide Screenshot Cards)
+  const showcaseTrack = document.getElementById('showcaseTrack');
 
-  // 1. Populate Infinite Marquee with direct click redirection to live sites
-  const marqueeTrack = document.getElementById('marqueeTrack');
-  const doubleMarquee = [...marqueeItems, ...marqueeItems, ...marqueeItems];
-  doubleMarquee.forEach(item => {
-    const el = document.createElement('div');
-    el.className = 'marquee-item';
-    el.innerHTML = `<span class="dot"></span> ${item.name} <span style="font-size:10px; opacity:0.6; margin-left:4px;">↗</span>`;
-    el.title = `Click to view ${item.name}`;
-    el.onclick = () => {
-      openProjectPreview(item.projectIndex);
-    };
-    marqueeTrack.appendChild(el);
-  });
+  // Build cards from projects — doubled for seamless infinite loop
+  function buildShowcaseCards(list) {
+    list.forEach(p => {
+      const a = document.createElement('a');
+      a.className = 'showcase-card';
+      a.href = p.link && p.link !== '#' ? p.link : 'javascript:void(0)';
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.title = `Open ${p.title} (live site)`;
 
-  // 2. Render Projects (Initial 3 projects, expandable to all)
+      const hasImage = p.image && p.image.trim() !== '';
+      a.innerHTML = hasImage
+        ? `
+          <img src="${p.image}" alt="${p.title}" loading="lazy"
+               onerror="this.outerHTML='<div class=\'showcase-card-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke-width=\'2\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'M21 15l-5-5L5 21\'/></svg><span>${p.title}</span></div>'">
+          <div class="showcase-card-arrow">&#8599;</div>`
+        : `
+          <div class="showcase-card-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>${p.title}</span>
+          </div>
+          <div class="showcase-card-arrow">&#8599;</div>`;
+
+      showcaseTrack.appendChild(a);
+    });
+  }
+
+  // Double the list for seamless infinite loop
+  buildShowcaseCards([...projects, ...projects]);
+
+  // 2. Render Projects (Initial 3 projects in 1 row, expandable to all)
   const projectsGrid = document.getElementById('projectsGrid');
   const toggleBtn = document.getElementById('toggleProjectsBtn');
   const toggleText = document.getElementById('toggleProjectsText');
@@ -3104,39 +3104,31 @@
     const visibleProjects = isAllProjectsExpanded ? projects : projects.slice(0, 3);
     
     visibleProjects.forEach((p, idx) => {
-      const card = document.createElement('div');
-      card.className = 'project-card in';
-      card.style.animation = `modalPop 0.4s ease forwards ${idx * 0.08}s`;
-      
+      const item = document.createElement('div');
+      item.className = 'project-item';
       const realIndex = projects.findIndex(item => item.title === p.title);
-      card.onclick = () => {
-        if (p.link && p.link !== "#") {
-          openProjectPreview(realIndex);
-        } else {
-          alert(`${p.title}: Live preview link will be added soon!`);
-        }
-      };
 
-      const mediaContent = (p.image && p.image.trim() !== "")
-        ? `<img src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'placeholder-screenshot-box\\'><svg viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke-width=\\'2\\'><rect x=\\'3\\' y=\\'3\\' width=\\'18\\' height=\\'18\\' rx=\\'2\\'/><circle cx=\\'8.5\\' cy=\\'8.5\\' r=\\'1.5\\'/><path d=\\'M21 15l-5-5L5 21\\'/></svg><span>${p.title}</span></div>'">`
-        : `<div class="placeholder-screenshot-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>${p.title} • Add Screenshot</span>
-          </div>`;
+      const mediaHTML = (p.image && p.image.trim() !== "")
+        ? `<img class="project-card-img" src="${p.image}" alt="${p.title}" loading="lazy"
+             onerror="this.outerHTML='<div class=\'project-card-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke-width=\'2\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><path d=\'M21 15l-5-5L5 21\'/></svg><span>Preview coming soon</span></div>'">`
+        : `<div class="project-card-placeholder">
+             <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+             <span>${p.title}</span>
+           </div>`;
 
-      card.innerHTML = `
-        <div class="project-media-box">
-          ${mediaContent}
+      const primaryCategory = p.tag.split('/')[0].trim();
+
+      item.innerHTML = `
+        <div class="project-label-row">
+          <span class="project-sample-name">${p.title}</span>
+          <span class="project-sample-tag">${primaryCategory}</span>
+        </div>
+        <div class="project-card" onclick="openProjectPreview(${realIndex})" title="Preview ${p.title}">
+          ${mediaHTML}
           <div class="project-arrow-badge">↗</div>
         </div>
-        <div class="project-card-details">
-          <div class="project-top-meta">
-            <span class="badge-mono" style="padding: 3px 10px; font-size: 11px;">${p.tag}</span>
-          </div>
-          <h3 class="project-card-title">${p.title}</h3>
-        </div>
       `;
-      projectsGrid.appendChild(card);
+      projectsGrid.appendChild(item);
     });
   }
 
@@ -3181,28 +3173,7 @@
     }
   }
 
-  // 5. Dark / Light Theme Toggle
-  const themeBtn = document.getElementById('themeToggleBtn');
-  const themeIcon = document.getElementById('themeIconSvg');
-  function setTheme(mode) {
-    if (mode === 'light') {
-      document.documentElement.setAttribute('data-theme', 'light');
-      themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-      themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
-    }
-  }
-
-  themeBtn.addEventListener('click', () => {
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    const next = isLight ? 'dark' : 'light';
-    localStorage.setItem('sharvonix_theme_pref', next);
-    setTheme(next);
-  });
-
-  const savedPref = localStorage.getItem('sharvonix_theme_pref');
-  if (savedPref) setTheme(savedPref);
+  // Theme is permanently light — no toggle needed
 
   // 6. Mobile Menu Drawer
   const mobileToggle = document.getElementById('mobileToggleBtn');
