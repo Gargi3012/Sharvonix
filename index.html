@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sharvonix — Digital Experience Studio | High-Converting Websites</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" href="favicon.ico">
 <meta name="description" content="Sharvonix designs and builds high-converting, custom digital experiences for ambitious brands and growing businesses. Websites starting from ₹5,999. Direct founder-level support.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -239,19 +241,26 @@
     gap: 12px;
   }
 
-  .brand-logo-icon {
-    width: 36px;
-    height: 36px;
+  .brand-logo-wrap {
+    width: 38px;
+    height: 38px;
     border-radius: 10px;
-    background: linear-gradient(135deg, var(--accent-purple), #3D5080);
+    background: #FFFFFF;
+    border: 1px solid var(--border-hairline);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    font-weight: 800;
-    font-family: var(--font-heading);
-    font-size: 18px;
-    box-shadow: 0 2px 10px var(--accent-purple-glow);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    padding: 3px;
+    flex-shrink: 0;
+  }
+
+  .brand-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
   }
 
   .brand-text {
@@ -1704,43 +1713,7 @@
     color: #FFFFFF;
   }
 
-  .preview-device-switch {
-    display: flex;
-    align-items: center;
-    background: #191924;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-full);
-    padding: 3px;
-    gap: 4px;
-  }
 
-  @media (max-width: 900px) {
-    .preview-device-switch {
-      display: none;
-    }
-  }
-
-  .device-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
-    border-radius: var(--radius-full);
-    border: none;
-    background: transparent;
-    color: var(--text-secondary);
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-  }
-
-  .device-btn.active {
-    background: #2A2A3C;
-    color: #FFFFFF;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  }
 
   .preview-right-actions {
     display: flex;
@@ -2334,10 +2307,12 @@
 
 <!-- FLOATING NAVBAR -->
 <nav class="navbar">
-  <div class="nav-brand">
-    <div class="brand-logo-icon">S</div>
+  <a href="#" class="nav-brand">
+    <div class="brand-logo-wrap">
+      <img src="images/sharvonix-logo-mark.png" alt="Sharvonix Logo" class="brand-logo-img">
+    </div>
     <span class="brand-text">Sharvonix</span>
-  </div>
+  </a>
 
   <div class="nav-links">
     <a href="#work">Work</a>
@@ -2375,7 +2350,7 @@
     <div class="hero-badge-wrap reveal">
       <div class="badge-mono">
         <span class="live-dot"></span>
-        <span>Accepting 2 New Projects This Month</span>
+        <span>Early-Stage Studio · 100% Founder Dedication</span>
       </div>
       <div class="badge-mono" style="background:rgba(255,255,255,0.05); border-color:var(--border-card); color:var(--text-secondary);">
         Websites starting from ₹5,999
@@ -2387,7 +2362,7 @@
     </h1>
 
     <p class="hero-subhead reveal">
-      Sharvonix is a digital experience studio that designs and engineers premium, high-converting websites for businesses that want to look as good as they perform.
+      Sharvonix is an independent digital experience studio founded by Gargi & Shubham. We design and engineer premium, high-converting websites with dedicated founder-level craft from day one.
     </p>
 
     <div class="hero-cta-group reveal">
@@ -2430,9 +2405,9 @@
 <!-- FEATURED WORK / PROJECTS -->
 <section class="section wrap" id="work">
   <div class="section-header reveal">
-    <div class="badge-mono">[ Selected Case Studies ]</div>
-    <h2 class="section-title">Our recent work</h2>
-    <p class="section-subtitle">Real builds crafted across diverse industries with obsessive attention to UI craft, conversion, and performance.</p>
+    <div class="badge-mono">[ Live Demonstrations &amp; Concepts ]</div>
+    <h2 class="section-title">Showcase builds &amp; concepts</h2>
+    <p class="section-subtitle">Live, working prototypes and concept websites engineered by us across diverse industries to showcase our UI craft, performance, and attention to detail.</p>
   </div>
 
   <div class="projects-grid" id="projectsGrid">
@@ -2442,7 +2417,7 @@
   <div class="view-all-wrap reveal" style="text-align:center; margin-top:48px;">
     <button id="toggleProjectsBtn" class="btn btn-outline" onclick="toggleProjectsView()" style="gap:10px; padding:14px 32px; font-size:15px;">
       <span id="toggleProjectsText">View all projects</span>
-      <span class="badge-mono" style="padding:2px 8px; font-size:11px;" id="totalProjectsBadge">5</span>
+      <span class="badge-mono" style="padding:2px 8px; font-size:11px;" id="totalProjectsBadge">6</span>
       <span id="toggleProjectsIcon" style="transition:transform .3s ease;">↓</span>
     </button>
   </div>
@@ -2867,6 +2842,12 @@
           <div class="phone-call-row" style="margin-top:-6px;">
             <a href="tel:+917015436857">+91 70154 36857</a>
           </div>
+          <div class="phone-call-row" style="margin-top:-6px;">
+            <a href="mailto:sharvonix@gmail.com" style="display:flex; align-items:center; gap:8px;">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              sharvonix@gmail.com
+            </a>
+          </div>
         </div>
         <p style="margin-top:12px; font-size:14px; color:var(--text-muted);">
           Available for WhatsApp chats & discovery calls daily (9 AM – 9 PM IST).
@@ -2892,10 +2873,12 @@
 <footer class="site-footer wrap">
   <div class="footer-main-row">
     <div style="max-width:320px;">
-      <div class="nav-brand" style="margin-bottom:14px;">
-        <div class="brand-logo-icon">S</div>
+      <a href="#" class="nav-brand" style="margin-bottom:14px;">
+        <div class="brand-logo-wrap">
+          <img src="images/sharvonix-logo-mark.png" alt="Sharvonix Logo" class="brand-logo-img">
+        </div>
         <span class="brand-text">Sharvonix</span>
-      </div>
+      </a>
       <p style="font-size:14px; line-height:1.6;">
         We build digital experiences, not just websites. High-converting web design studio for forward-thinking brands.
       </p>
@@ -2912,18 +2895,20 @@
 
     <div class="footer-col">
       <h4>Contact</h4>
+      <a href="mailto:sharvonix@gmail.com">sharvonix@gmail.com</a>
       <a href="tel:+917988207356">+91 79882 07356</a>
       <a href="tel:+917015436857">+91 70154 36857</a>
-      <a href="https://wa.me/917988207356" target="_blank">WhatsApp Support</a>
+      <a href="https://wa.me/917988207356" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
     </div>
 
     <div class="footer-col">
       <h4>Social</h4>
       <div class="footer-social-row">
-        <a href="https://instagram.com" target="_blank" class="social-icon-btn" title="Instagram">IG</a>
-        <a href="https://linkedin.com" target="_blank" class="social-icon-btn" title="LinkedIn">LI</a>
-        <a href="https://twitter.com" target="_blank" class="social-icon-btn" title="Twitter">TW</a>
+        <a href="https://instagram.com/sharvonix" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Instagram (@sharvonix)">IG</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">LI</a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Twitter">TW</a>
       </div>
+      <a href="https://instagram.com/sharvonix" target="_blank" rel="noopener noreferrer" style="font-size:13px; margin-top:8px; display:inline-block; color:var(--text-secondary);">@sharvonix</a>
     </div>
   </div>
 
@@ -2946,16 +2931,7 @@
       </div>
     </div>
 
-    <div class="preview-device-switch">
-      <button class="device-btn active" id="deviceDesktopBtn" onclick="setPreviewDevice('desktop')" title="Desktop Preview">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        <span>Desktop</span>
-      </button>
-      <button class="device-btn" id="deviceMobileBtn" onclick="setPreviewDevice('mobile')" title="Mobile Preview">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-        <span>Mobile</span>
-      </button>
-    </div>
+
 
     <div class="preview-right-actions">
       <a href="#" id="previewExternalLink" target="_blank" class="btn btn-outline" style="padding: 8px 16px; font-size: 13px; gap: 6px;">
@@ -3025,6 +3001,12 @@
       link: "https://shiv-nine-gamma.vercel.app/"
     },
     {
+      title: "Fashion & Apparel Store",
+      tag: "E-Commerce / Fashion & Apparel",
+      image: "images/prime-chic.png",
+      link: "https://prime-chic-studio.vercel.app/"
+    },
+    {
       title: "B2B Wholesale & Textile",
       tag: "B2B / Wholesale / Textile",
       image: "images/blanket-hub.png",
@@ -3034,25 +3016,13 @@
       title: "Bakery & Patisserie Storefront",
       tag: "Bakery / Food & Beverage",
       image: "images/bakery-storefront.png",
-      link: "https://sweet-crafted-visions.lovable.app/"
+      link: "#"
     },
     {
       title: "Finance & Loan Hub",
       tag: "Finance / Loan Services / Fintech",
       image: "images/rightway-finance.png",
-      link: "https://rightway-finance-hub.lovable.app"
-    },
-    {
-      title: "Fashion & Apparel Store",
-      tag: "E-Commerce / Fashion & Apparel",
-      image: "images/prime-chic.png",
-      link: "https://prime-chic-studio.lovable.app"
-    },
-    {
-      title: "Luxury Jewellery Store",
-      tag: "E-Commerce / Luxury Jewellery",
-      image: "images/roshni-creations.png",
-      link: "https://e-commerce-website-five-woad-92.vercel.app/"
+      link: "#"
     }
   ];
 
@@ -3253,8 +3223,8 @@
         appendChatMsg(`Sharvonix was founded by <b>Gargi Sharma</b> (Founder) & <b>Shubham Sharma</b> (Co-founder). You get direct founder access without any middlemen or account managers!`);
       } else if (q.includes('fast') || q.includes('time') || q.includes('deliver') || q.includes('days')) {
         appendChatMsg(`We deliver standard websites in just <b>3 to 7 days</b>, and complete e-commerce stores in 10-14 days.`);
-      } else if (q.includes('start') || q.includes('book') || q.includes('hire') || q.includes('contact')) {
-        appendChatMsg(`Awesome! You can message founders directly on WhatsApp at <b>+91 79882 07356</b> or <b>+91 70154 36857</b>.<br><br><a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I'm%20ready%20to%20start%20my%20website%20project!" target="_blank" class="btn btn-primary" style="padding:8px 16px; font-size:12px; margin-top:6px;">Open WhatsApp Now ↗</a>`);
+      } else if (q.includes('start') || q.includes('book') || q.includes('hire') || q.includes('contact') || q.includes('email') || q.includes('instagram') || q.includes('ig') || q.includes('mail')) {
+        appendChatMsg(`You can connect with us directly:<br>• 📧 <b>Email:</b> <a href="mailto:sharvonix@gmail.com" style="color:var(--accent-purple); font-weight:700;">sharvonix@gmail.com</a><br>• 📸 <b>Instagram:</b> <a href="https://instagram.com/sharvonix" target="_blank" style="color:var(--accent-purple); font-weight:700;">@sharvonix</a><br>• 📱 <b>WhatsApp:</b> +91 79882 07356 / +91 70154 36857<br><br><a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I'm%20ready%20to%20start%20my%20website%20project!" target="_blank" class="btn btn-primary" style="padding:8px 16px; font-size:12px; margin-top:6px;">Chat on WhatsApp Now ↗</a>`);
       } else {
         appendChatMsg(`Thank you for reaching out! Sharvonix specializes in custom digital experiences starting from ₹5,999. Would you like to discuss your project directly with Gargi & Shubham on WhatsApp?<br><br><a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I%20have%20a%20question%20regarding%20my%20website." target="_blank" style="color:var(--accent-purple); font-weight:700;">Connect on WhatsApp ↗</a>`);
       }
@@ -3284,7 +3254,6 @@
       iframe.src = '';
     }
 
-    setPreviewDevice('desktop');
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -3295,22 +3264,6 @@
     modal.classList.remove('active');
     iframe.src = '';
     document.body.style.overflow = '';
-  }
-
-  function setPreviewDevice(device) {
-    const container = document.getElementById('previewFrameContainer');
-    const desktopBtn = document.getElementById('deviceDesktopBtn');
-    const mobileBtn = document.getElementById('deviceMobileBtn');
-
-    if (device === 'mobile') {
-      container.classList.add('mobile-view');
-      mobileBtn.classList.add('active');
-      desktopBtn.classList.remove('active');
-    } else {
-      container.classList.remove('mobile-view');
-      desktopBtn.classList.add('active');
-      mobileBtn.classList.remove('active');
-    }
   }
 
   // 11. Mobile Pricing Carousel & Tabs Controller

@@ -1,10 +1,10 @@
 # Sharvonix — Digital Experience Studio 🚀
 
-All 7 real projects are 100% connected with live desktop screenshots and working URLs in `index.html`!
+All live projects are 100% connected with live desktop screenshots and working URLs in `index.html`!
 
 ---
 
-## 🌟 All 7 Live Projects (100% Complete):
+## 🌟 Live Projects:
 
 1. 🥇 **Wholesale Blanket Business**: [`https://blanket-hub.vercel.app/`](https://blanket-hub.vercel.app/)
    - *Image:* `images/blanket-hub.png`
@@ -18,14 +18,11 @@ All 7 real projects are 100% connected with live desktop screenshots and working
    - *Image:* `images/prime-chic.png`
 6. 🤝 **Flood Relief & Donation Platform**: [`https://flood-relief-sigma.vercel.app/`](https://flood-relief-sigma.vercel.app/)
    - *Image:* `images/flood-relief.png`
-7. 💎 **Roshni Creations — Jewellery Store**: [`https://e-commerce-website-five-woad-92.vercel.app/`](https://e-commerce-website-five-woad-92.vercel.app/)
-   - *Image:* `images/roshni-creations.png`
 
 ---
 
 ## ✨ Features Included:
 - **In-App Live Previewer**: Client clicks any card to test the live website inside a sleek interactive fullscreen modal.
 - **Back to Sharvonix**: Prominent `← Back to Sharvonix` button returns to the home page with a single click.
-- **Desktop & Mobile Switcher**: Toggle between Desktop and Mobile Phone frame view.
-- **Expandable Grid**: Initial Top 3 projects visible, expandable to all 7 projects with `View all projects [7] ↓`.
+- **Expandable Grid**: Initial Top 3 projects visible, expandable to all projects with `View all projects ↓`.
 - **Zero Fake Data**: 100% real projects, founders (Gargi Sharma & Shubham Sharma), real direct phone & WhatsApp lines (`+91 79882 07356`, `+91 70154 36857`).
