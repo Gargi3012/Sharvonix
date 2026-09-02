@@ -128,10 +128,11 @@
     }
 
     /* Section Styling */
-    .section {
+    .section, section[id] {
       padding: 120px 0;
       position: relative;
       border-bottom: 1px solid var(--border-hairline);
+      scroll-margin-top: 100px;
     }
 
     .section-header {
@@ -1847,6 +1848,10 @@
         padding-right: 18px !important;
       }
 
+      .section, section[id] {
+        scroll-margin-top: 85px !important;
+      }
+
       .section-pad {
         padding-top: 64px !important;
         padding-bottom: 64px !important;
@@ -2269,14 +2274,44 @@
       }
 
       /* 10. FAQs */
+      .faqs-container {
+        gap: 12px !important;
+      }
+
+      .faq-card {
+        border-radius: 16px !important;
+        background: var(--bg-card) !important;
+        border: 1px solid var(--border-card) !important;
+        overflow: hidden !important;
+      }
+
       .faq-question-btn {
-        padding: 16px 14px !important;
-        font-size: 14px !important;
+        padding: 18px 16px !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        line-height: 1.4 !important;
+        gap: 12px !important;
       }
 
       .faq-answer-panel {
-        padding: 0 14px 16px !important;
-        font-size: 13.5px !important;
+        padding: 0 16px !important;
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        max-height: 0 !important;
+        transition: max-height 0.35s ease, padding 0.35s ease !important;
+      }
+
+      .faq-card.active .faq-answer-panel {
+        padding: 0 16px 20px !important;
+        max-height: 600px !important;
+      }
+
+      .faq-icon-cross {
+        width: 30px !important;
+        height: 30px !important;
+        min-width: 30px !important;
+        font-size: 18px !important;
+        flex-shrink: 0 !important;
       }
 
       /* 11. Contact & Founder Lines */
