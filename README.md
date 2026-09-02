@@ -6,18 +6,20 @@ All live projects are 100% connected with live desktop screenshots and working U
 
 ## 🌟 Live Projects:
 
-1. 🥇 **Wholesale Blanket Business**: [`https://blanket-hub.vercel.app/`](https://blanket-hub.vercel.app/)
-   - *Image:* `images/blanket-hub.png`
-2. 🥐 **Channel 9 — Bakery & Patisserie**: [`https://sweet-crafted-visions.lovable.app/`](https://sweet-crafted-visions.lovable.app/)
-   - *Image:* `images/bakery-storefront.png`
-3. 💰 **Rightway — Loan & Finance Hub**: [`https://rightway-finance-hub.lovable.app`](https://rightway-finance-hub.lovable.app)
-   - *Image:* `images/rightway-finance.png`
-4. 🏢 **Shiv Property — Real Estate Platform**: [`https://shiv-atuk2opes-gargi3115.vercel.app/#home`](https://shiv-atuk2opes-gargi3115.vercel.app/#home)
-   - *Image:* `images/shiv-property.png`
-5. 👗 **Prime Chic — Multibrand Clothing Store**: [`https://prime-chic-studio.lovable.app`](https://prime-chic-studio.lovable.app)
+1. 👗 **Prime Chic — Multibrand Clothing Store**: [`https://prime-chic-studio.vercel.app/`](https://prime-chic-studio.vercel.app/)
    - *Image:* `images/prime-chic.png`
-6. 🤝 **Flood Relief & Donation Platform**: [`https://flood-relief-sigma.vercel.app/`](https://flood-relief-sigma.vercel.app/)
-   - *Image:* `images/flood-relief.png`
+2. 👜 **Maison Marceau — Fine Leathercraft & Bags**: [`https://handbag-website-woad.vercel.app/`](https://handbag-website-woad.vercel.app/)
+   - *Image:* `images/handbag-website.png`
+3. ☕ **Cafe Olive — Artisanal Bistro & Dining**: [`https://cafe-olive-chi.vercel.app/`](https://cafe-olive-chi.vercel.app/)
+   - *Image:* `images/cafe-olive.png`
+4. 🏢 **Shiv Property — Real Estate Platform**: [`https://shiv-nine-gamma.vercel.app/`](https://shiv-nine-gamma.vercel.app/)
+   - *Image:* `images/shiv-property.png`
+5. 🥇 **Wholesale Blanket Business**: [`https://blanket-hub.vercel.app/`](https://blanket-hub.vercel.app/)
+   - *Image:* `images/blanket-hub.png`
+6. 🥐 **Channel 9 — Bakery & Patisserie**: [`https://sweet-crafted-visions.lovable.app/`](https://sweet-crafted-visions.lovable.app/)
+   - *Image:* `images/bakery-storefront.png`
+7. 💰 **Rightway — Loan & Finance Hub**: [`https://rightway-finance-hub.lovable.app`](https://rightway-finance-hub.lovable.app)
+   - *Image:* `images/rightway-finance.png`
 
 ---
 
