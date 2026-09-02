@@ -6,11 +6,11 @@ All live projects are 100% connected with live desktop screenshots and working U
 
 ## 🌟 Live Projects:
 
-1. 👗 **Prime Chic — Multibrand Clothing Store**: [`https://prime-chic-studio.vercel.app/`](https://prime-chic-studio.vercel.app/)
+1. 👗 **Prime Chic**: [`https://prime-chic-studio.vercel.app/`](https://prime-chic-studio.vercel.app/)
    - *Image:* `images/prime-chic.png`
-2. 👜 **Maison Marceau — Fine Leathercraft & Bags**: [`https://handbag-website-woad.vercel.app/`](https://handbag-website-woad.vercel.app/)
+2. 👜 **Handbag Studio**: [`https://handbag-website-woad.vercel.app/`](https://handbag-website-woad.vercel.app/)
    - *Image:* `images/handbag-website.png`
-3. ☕ **Cafe Olive — Artisanal Bistro & Dining**: [`https://cafe-olive-chi.vercel.app/`](https://cafe-olive-chi.vercel.app/)
+3. ☕ **Cafe & Bistro**: [`https://cafe-olive-chi.vercel.app/`](https://cafe-olive-chi.vercel.app/)
    - *Image:* `images/cafe-olive.png`
 4. 🏢 **Shiv Property — Real Estate Platform**: [`https://shiv-nine-gamma.vercel.app/`](https://shiv-nine-gamma.vercel.app/)
    - *Image:* `images/shiv-property.png`
