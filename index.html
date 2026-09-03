@@ -1393,9 +1393,14 @@
       font-family: var(--font-mono);
       font-size: 32px;
       font-weight: 700;
-      color: var(--accent-highlight);
-      opacity: 0.7;
+      color: #94a3b8; /* text-slate-400 — elegant architectural studio slate */
+      letter-spacing: -0.02em;
       margin-bottom: 14px;
+      transition: color 0.2s ease;
+    }
+
+    .process-box:hover .process-num-head {
+      color: #1e293b; /* slate-800 on hover — subtle depth reveal */
     }
 
     .process-box-title {
@@ -1477,16 +1482,17 @@
       position: absolute;
       top: -14px;
       left: 32px;
-      background: var(--accent-highlight);
-      color: #1A1A1A;
-      font-family: var(--font-mono);
+      background: #0f172a; /* Dark obsidian — site's signature dark */
+      color: #ffffff;
+      font-family: var(--font-sans);
       font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      padding: 6px 16px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      padding: 5px 14px;
       border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       text-transform: uppercase;
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     }
 
     .plan-tier-label {
