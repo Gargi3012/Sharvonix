@@ -68,7 +68,7 @@
     }
 
     body {
-      background-color: var(--bg-dark);
+      background-color: #ffffff;
       color: var(--text-primary);
       font-family: var(--font-sans);
       line-height: 1.5;
@@ -87,17 +87,6 @@
     /* Suppress old dark-mode theme toggle — light is now the default */
     [data-theme="light"] {
       /* kept for JS compat, same as root */
-    }
-
-    /* ── Magic UI DotPattern — global fixed background ── */
-    .magicui-dot-pattern {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -10;
-      overflow: visible;
     }
 
     .wrap {
@@ -1867,21 +1856,19 @@
     /* AI ASSISTANT CHATBOT widget: Sleek, compact dark pill at bottom-right (Linear/Stripe aesthetic) */
     .ai-chat-launcher {
       position: fixed;
-      bottom: 20px; /* bottom-5 */
-      right: 20px;  /* right-5 */
-      background: #0F172A !important; /* bg-slate-900 */
-      color: #F8FAFC !important;
-      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      bottom: 20px;
+      right: 20px;
+      background-color: #0f172a !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
       border-radius: 9999px;
-      padding: 9px 16px;
+      padding: 10px 18px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       cursor: pointer;
-      box-shadow: 0 10px 25px -3px rgba(15, 23, 42, 0.25), 0 4px 6px -4px rgba(15, 23, 42, 0.1) !important;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 50; /* z-50 */
+      box-shadow: 0 10px 25px -3px rgba(15, 23, 42, 0.35), 0 4px 6px -4px rgba(15, 23, 42, 0.15) !important;
+      z-index: 50;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
 
@@ -1896,24 +1883,29 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #FFFFFF; /* text-white — was slate-400, now fully white for readability */
+      color: #ffffff !important;
+    }
+
+    .ai-launcher-icon-wrap svg {
+      stroke: #ffffff !important;
+      color: #ffffff !important;
     }
 
     .ai-launcher-text {
       font-family: var(--font-sans);
-      font-size: 13px;
-      font-weight: 600; /* font-medium → font-semibold for crispness on dark bg */
-      color: #FFFFFF; /* strictly white */
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      color: #ffffff !important;
       letter-spacing: -0.01em;
       white-space: nowrap;
     }
 
     .ai-launcher-dot {
-      width: 8px;  /* h-2 w-2 */
+      width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #34D399; /* bg-emerald-400 */
-      box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.3);
+      background-color: #22c55e !important;
+      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.3);
       animation: ai-dot-pulse 2s ease-in-out infinite;
       flex-shrink: 0;
     }
@@ -2909,19 +2901,6 @@
 
 <body>
 
-  <!-- Magic UI DotPattern — global fixed background (stroke-based SVG dots, radial fade mask) -->
-  <svg
-    class="magicui-dot-pattern"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    style="mask-image:radial-gradient(ellipse at center,white 30%,transparent 85%);-webkit-mask-image:radial-gradient(ellipse at center,white 30%,transparent 85%);">
-    <defs>
-      <pattern id="magicui-dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-        <circle cx="1" cy="1" r="1" fill="rgba(148,163,184,0.55)" />
-      </pattern>
-    </defs>
-    <rect width="100%" height="100%" fill="url(#magicui-dots)" />
-  </svg>
 
   <!-- FLOATING NAVBAR -->
   <nav class="navbar">
