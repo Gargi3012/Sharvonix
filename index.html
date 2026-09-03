@@ -215,19 +215,29 @@
       max-width: 580px;
     }
 
-    /* Framer-Style Monospace Tag */
+    /* Clean Minimal Section Badge */
     .badge-mono {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #64748b; /* text-slate-500 */
+      margin-bottom: 12px; /* mb-3 */
+      line-height: 1.2;
+    }
+
+    .preview-modal-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       font-family: var(--font-mono);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      font-size: 11px;
       color: var(--accent-purple);
       background: var(--accent-purple-soft);
       border: 1px solid var(--border-accent);
-      padding: 6px 14px;
+      padding: 2px 8px;
       border-radius: var(--radius-full);
     }
 
@@ -892,13 +902,13 @@
       background: var(--bg-card);
       border: 1px solid var(--border-card);
       aspect-ratio: 16 / 10;
-      transition: var(--transition);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .project-card:hover {
-      box-shadow: 0 12px 36px rgba(43, 58, 103, 0.15);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
       transform: translateY(-4px);
-      border-color: var(--accent-purple);
+      border-color: #cbd5e1;
     }
 
     /* Full-bleed image fills the card */
@@ -1230,15 +1240,15 @@
       box-shadow:
         inset 0 1px 0 0 rgba(255, 255, 255, 0.9),
         0 10px 30px -5px rgba(0, 0, 0, 0.04);
-      transition: var(--transition);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: default;
     }
 
     .service-card:hover {
       background: #FFFFFF;
-      border-color: var(--accent-purple);
-      transform: translateY(-2px) translateX(4px);
-      box-shadow: 0 8px 24px rgba(43, 58, 103, 0.12);
+      border-color: #cbd5e1;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
     }
 
     .service-card .service-circle-icon {
@@ -1430,8 +1440,25 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      height: 100%;
       position: relative;
       transition: var(--transition);
+    }
+
+    .pricing-box > div:not(.pricing-top-pill) {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .pricing-box .plan-features-list {
+      flex-grow: 1;
+      margin-bottom: 32px;
+    }
+
+    .pricing-box .btn {
+      margin-top: auto;
+      width: 100%;
     }
 
     .pricing-box:hover {
@@ -3205,7 +3232,7 @@
   <!-- FEATURED WORK / PROJECTS -->
   <section class="section wrap" id="work">
     <div class="section-header reveal">
-      <div class="badge-mono">[ Our Work ]</div>
+      <div class="badge-mono">OUR WORK</div>
       <h2 class="section-title">Websites We've Built</h2>
       <p class="section-subtitle">Explore our live websites and design demos.</p>
     </div>
@@ -3227,7 +3254,7 @@
   <!-- COMPARISON: OLD WAY VS SHARVONIX WAY -->
   <section class="section wrap">
     <div class="section-header reveal">
-      <div class="badge-mono">[ The Advantage ]</div>
+      <div class="badge-mono">THE ADVANTAGE</div>
       <h2 class="section-title">Why businesses choose Sharvonix</h2>
       <p class="section-subtitle">Fast, custom websites without agency delays or high fees.</p>
     </div>
@@ -3309,7 +3336,7 @@
 
       <!-- Left Column: Heading, Tech Stack & Speak to Us -->
       <div class="services-left-col reveal">
-        <div class="badge-mono" style="margin-bottom: 20px; width: fit-content;">[ WHAT WE DELIVER ]</div>
+        <div class="badge-mono" style="margin-bottom: 20px; width: fit-content;">WHAT WE DELIVER</div>
         <h2 class="services-big-heading">
           <span class="muted-part">Services that</span><br>
           <span>supercharge your business.</span>
@@ -3378,29 +3405,6 @@
                 <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z" />
               </svg>
             </div>
-          </div>
-        </div>
-
-        <!-- Speak To Us Pill Widget -->
-        <div class="speak-widget-pill">
-          <div class="speak-widget-text">
-            <div class="speak-main">Speak to us</div>
-            <div class="speak-sub">Message or book a call</div>
-          </div>
-          <div class="speak-actions-btns">
-            <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I%20want%20to%20build%20a%20website"
-              target="_blank" class="speak-act-circle" title="Chat on WhatsApp">
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.886 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-              </svg>
-            </a>
-            <a href="tel:+917988207356" class="speak-act-circle" title="Call Us Directly">
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.43-3.9-6.8-6.73l1.97-1.57a1.006 1.006 0 0 0 .24-1.01A11.23 11.23 0 0 1 8.75 4c0-.55-.45-1-1-1H4.25c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.75c0-.55-.45-1-.24-1.87z" />
-              </svg>
-            </a>
           </div>
         </div>
       </div>
@@ -3472,7 +3476,7 @@
   <!-- PROCESS (01 - 04) -->
   <section class="section wrap" id="process">
     <div class="section-header reveal">
-      <div class="badge-mono">[ How It Works ]</div>
+      <div class="badge-mono">HOW IT WORKS</div>
       <h2 class="section-title">A simple 4-step process</h2>
       <p class="section-subtitle">From first conversation to live website in 3 to 7 days.</p>
     </div>
@@ -3507,7 +3511,7 @@
   <!-- PRICING SECTION -->
   <section class="section wrap" id="pricing">
     <div class="section-header reveal">
-      <div class="badge-mono">[ Transparent Investment ]</div>
+      <div class="badge-mono">PRICING</div>
       <h2 class="section-title">Simple, honest pricing</h2>
       <p class="section-subtitle">Predictable packages with no hidden extras. Choose the plan that matches your current
         growth stage.</p>
@@ -3624,7 +3628,7 @@
   <!-- FAQS ACCORDION -->
   <section class="section wrap" id="faqs">
     <div class="section-header reveal">
-      <div class="badge-mono">[ FAQ ]</div>
+      <div class="badge-mono">FAQ</div>
       <h2 class="section-title">Frequently asked questions</h2>
       <p class="section-subtitle">Everything you need to know before starting your project with Sharvonix.</p>
     </div>
@@ -3691,7 +3695,7 @@
   <section class="section contact-section-full" id="contact" style="background-color: #F8FAFC !important;">
     <div class="wrap">
       <div class="section-header reveal">
-        <div class="badge-mono">[ Contact Founders ]</div>
+        <div class="badge-mono">CONTACT FOUNDERS</div>
         <h2 class="section-title">Let's Build Your Website</h2>
         <p class="section-subtitle">Tell us about your idea below, or message us directly on WhatsApp.</p>
       </div>
