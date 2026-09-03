@@ -464,7 +464,14 @@
       margin-bottom: 56px;
     }
 
-    /* Stats / Value Highlights Strip */
+    /* Stats / Value Highlights Strip Section */
+    .hero-stats-section {
+      max-width: 960px;
+      margin: -20px auto 60px;
+      position: relative;
+      z-index: 2;
+    }
+
     .hero-stats-strip {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -2302,38 +2309,77 @@
         align-items: center !important;
       }
 
-      /* 2. Hero Mobile Optimization: pt-24 safe-area */
+      /* 2. Hero Mobile Optimization: Full-viewport single slide without any peeking cards */
       .hero-section {
-        padding-top: 96px !important; /* pt-24 */
-        padding-bottom: 50px !important;
-        min-height: auto !important;
+        min-height: 100dvh !important;
+        height: 100dvh !important;
+        max-height: 100dvh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding-top: 80px !important;
+        padding-bottom: 24px !important;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        margin-bottom: 0 !important;
       }
 
-      .hero-headline {
-        font-size: clamp(25px, 7vw, 38px) !important;
-        line-height: 1.12 !important;
-        letter-spacing: -0.025em !important;
+      .hero-content {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      .hero-badge-wrap {
+        gap: 6px !important;
         margin-bottom: 16px !important;
       }
 
-      .hero-subhead {
-        font-size: 15px !important;
-        line-height: 1.55 !important;
-        margin-bottom: 28px !important;
+      .hero-badge-wrap .badge-mono {
+        font-size: 10.5px !important;
+        padding: 4px 10px !important;
+        letter-spacing: 0.03em !important;
+      }
+
+      .hero-headline {
+        font-size: clamp(24px, 6.8vw, 34px) !important;
+        line-height: 1.14 !important;
+        letter-spacing: -0.025em !important;
+        margin-bottom: 12px !important;
         padding: 0 4px !important;
+      }
+
+      .hero-subhead {
+        font-size: 13.5px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 22px !important;
+        padding: 0 8px !important;
+        max-width: 95% !important;
       }
 
       .hero-cta-group {
         flex-direction: column !important;
-        gap: 12px !important;
+        gap: 10px !important;
         width: 100% !important;
+        max-width: 320px !important;
+        margin-bottom: 0 !important;
       }
 
       .hero-cta-group .btn {
         width: 100% !important;
         justify-content: center !important;
-        padding: 15px 20px !important;
-        font-size: 15px !important;
+        padding: 13px 18px !important;
+        font-size: 14.5px !important;
+      }
+
+      .hero-stats-section {
+        margin: 28px auto 44px !important;
+        padding: 0 16px !important;
       }
 
       .hero-stats-row {
@@ -2900,41 +2946,43 @@
         </a>
       </div>
 
-      <!-- STATS STRIP -->
-      <div class="hero-stats-strip reveal">
-        <div class="stat-block">
-          <div class="stat-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4.5L6 21l1.5-7.5L2 9h7z" />
-            </svg>
-          </div>
-          <div class="stat-info-text">100% Custom Design<br><span
-              style="color:var(--text-muted); font-size:12px; font-weight:400;">No generic templates</span></div>
-        </div>
-        <div class="stat-block">
-          <div class="stat-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M13 2L3 14h7l-1 8 11-13h-7l1-7z" />
-            </svg>
-          </div>
-          <div class="stat-info-text">Fast Turnaround<br><span
-              style="color:var(--text-muted); font-size:12px; font-weight:400;">Delivered in 3-7 days</span></div>
-        </div>
-        <div class="stat-block">
-          <div class="stat-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M9 12l2 2 4-4" />
-            </svg>
-          </div>
-          <div class="stat-info-text">Founder-Level Support<br><span
-              style="color:var(--text-muted); font-size:12px; font-weight:400;">Direct access to Gargi & Shubham</span>
-          </div>
-        </div>
-      </div>
-
     </div>
   </header>
+
+  <!-- HERO STATS STRIP SECTION -->
+  <section class="hero-stats-section wrap reveal">
+    <div class="hero-stats-strip">
+      <div class="stat-block">
+        <div class="stat-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4.5L6 21l1.5-7.5L2 9h7z" />
+          </svg>
+        </div>
+        <div class="stat-info-text">100% Custom Design<br><span
+            style="color:var(--text-muted); font-size:12px; font-weight:400;">No generic templates</span></div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h7l-1 8 11-13h-7l1-7z" />
+          </svg>
+        </div>
+        <div class="stat-info-text">Fast Turnaround<br><span
+            style="color:var(--text-muted); font-size:12px; font-weight:400;">Delivered in 3-7 days</span></div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M9 12l2 2 4-4" />
+          </svg>
+        </div>
+        <div class="stat-info-text">Founder-Level Support<br><span
+            style="color:var(--text-muted); font-size:12px; font-weight:400;">Direct access to Gargi & Shubham</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- WEBSITE SHOWCASE IMAGE SLIDER -->
   <div class="showcase-slider-wrapper">
