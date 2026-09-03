@@ -2129,6 +2129,15 @@
       footer, .site-footer, .footer {
         padding-bottom: 112px !important; /* pb-28 */
       }
+
+      /* Extra bottom clearance on ALL sections so dock never covers CTAs */
+      body {
+        padding-bottom: 120px !important;
+      }
+
+      #pricing {
+        padding-bottom: 140px !important;
+      }
     }
 
     .ai-avatar-pulse {
@@ -2826,6 +2835,7 @@
       /* 7. Pricing Deck (Mobile Quick Tabs + Horizontal Snap Carousel) */
       .mobile-pricing-tabs {
         display: flex !important;
+        align-items: center !important;
         background: var(--bg-surface) !important;
         border: 1px solid var(--border-card) !important;
         border-radius: var(--radius-full) !important;
@@ -2834,6 +2844,14 @@
         margin: 0 auto 20px !important;
         width: 100% !important;
         max-width: 440px !important;
+        overflow-x: auto !important;       /* horizontally scrollable */
+        scrollbar-width: none !important;  /* Firefox - no scrollbar */
+        -webkit-overflow-scrolling: touch !important;
+      }
+
+      /* Hide webkit scrollbar for tab row */
+      .mobile-pricing-tabs::-webkit-scrollbar {
+        display: none !important;
       }
 
       .pricing-tab-btn {
@@ -3526,8 +3544,10 @@
     <!-- Mobile Quick Plan Tabs Switcher -->
     <div class="mobile-pricing-tabs reveal" id="mobilePricingTabs">
       <button class="pricing-tab-btn" onclick="selectPricingPlan(0)" id="tabPlan0">Starter (₹5.9k)</button>
-      <button class="pricing-tab-btn active" onclick="selectPricingPlan(1)" id="tabPlan1">⭐ Business (₹9.9k)</button>
-      <button class="pricing-tab-btn" onclick="selectPricingPlan(2)" id="tabPlan2">Custom Growth (₹15.9k)</button>
+      <button class="pricing-tab-btn active" onclick="selectPricingPlan(1)" id="tabPlan1">
+        <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#94a3b8;margin-right:5px;vertical-align:middle;"></span>Business (₹9.9k)
+      </button>
+      <button class="pricing-tab-btn" onclick="selectPricingPlan(2)" id="tabPlan2">Custom (₹16k)</button>
     </div>
 
     <div class="pricing-deck reveal" id="pricingDeck">
