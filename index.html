@@ -89,17 +89,6 @@
       /* kept for JS compat, same as root */
     }
 
-    /* Dot Pattern background */
-    .dot-pattern {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 0;
-    }
-
     .wrap {
       max-width: var(--container);
       margin: 0 auto;
@@ -411,6 +400,18 @@
       background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(43, 58, 103, 0.07) 50%, transparent 70%);
       filter: blur(80px);
       opacity: 0.8;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Hero dot-grid layer (CSS-only, contained inside hero) */
+    .hero-dot-bg {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+      background-size: 24px 24px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
       pointer-events: none;
       z-index: 0;
     }
@@ -2900,23 +2901,6 @@
 
 <body>
 
-  <!-- Dot Pattern Background -->
-  <svg class="dot-pattern" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <defs>
-      <pattern id="dot-grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-        <circle cx="1" cy="1" r="1.2" fill="#2B3A67" opacity="0.18" />
-      </pattern>
-      <radialGradient id="dot-mask-gradient" cx="50%" cy="38%" r="55%" fx="50%" fy="38%">
-        <stop offset="0%" stop-color="white" stop-opacity="1" />
-        <stop offset="55%" stop-color="white" stop-opacity="0.4" />
-        <stop offset="100%" stop-color="white" stop-opacity="0" />
-      </radialGradient>
-      <mask id="dot-mask">
-        <rect width="100%" height="100%" fill="url(#dot-mask-gradient)" />
-      </mask>
-    </defs>
-    <rect width="100%" height="100%" fill="url(#dot-grid)" mask="url(#dot-mask)" />
-  </svg>
 
   <!-- FLOATING NAVBAR -->
   <nav class="navbar">
@@ -2961,6 +2945,7 @@
 
   <!-- HERO SECTION -->
   <header class="hero-section wrap">
+    <div class="hero-dot-bg" aria-hidden="true"></div>
     <div class="hero-ambient-glow"></div>
     <div class="hero-content">
 
