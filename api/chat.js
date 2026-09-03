@@ -40,7 +40,43 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Message is required' });
     }
 
-    // 1. Try Google Gemini API if GEMINI_API_KEY is configured
+    // 1. Try Groq API if GROQ_API_KEY is configured (fastest — llama-3.1-8b-instant)
+    const groqKey = process.env.GROQ_API_KEY;
+    if (groqKey) {
+      try {
+        const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${groqKey}`
+          },
+          body: JSON.stringify({
+            model: 'llama-3.1-8b-instant',
+            messages: [
+              { role: 'system', content: SYSTEM_PROMPT },
+              { role: 'user', content: userMessage }
+            ],
+            temperature: 0.35,
+            max_tokens: 400
+          })
+        });
+
+        if (groqRes.ok) {
+          const data = await groqRes.json();
+          const reply = data?.choices?.[0]?.message?.content;
+          if (reply) {
+            return res.status(200).json({ reply });
+          }
+        } else {
+          const errBody = await groqRes.text();
+          console.warn('Groq API error:', groqRes.status, errBody);
+        }
+      } catch (err) {
+        console.warn('Groq API call failed, falling back:', err.message);
+      }
+    }
+
+    // 2. Try Google Gemini API if GEMINI_API_KEY is configured
     const geminiKey = process.env.GEMINI_API_KEY;
     if (geminiKey) {
       try {
@@ -74,11 +110,11 @@ export default async function handler(req, res) {
           }
         }
       } catch (err) {
-        console.warn('Gemini API call failed, using built-in guardrail engine:', err.message);
+        console.warn('Gemini API call failed, falling back:', err.message);
       }
     }
 
-    // 2. Try OpenAI API if OPENAI_API_KEY is configured
+    // 3. Try OpenAI API if OPENAI_API_KEY is configured
     const openaiKey = process.env.OPENAI_API_KEY;
     if (openaiKey) {
       try {
@@ -107,11 +143,11 @@ export default async function handler(req, res) {
           }
         }
       } catch (err) {
-        console.warn('OpenAI API call failed, using built-in guardrail engine:', err.message);
+        console.warn('OpenAI API call failed, falling back:', err.message);
       }
     }
 
-    // 3. Built-in Deterministic Guardrail Engine (Strictly enforces prompt requirements)
+    // 4. Built-in Deterministic Guardrail Engine (fallback — no API key needed)
     const reply = evaluateGuardrails(userMessage);
     return res.status(200).json({ reply });
 
