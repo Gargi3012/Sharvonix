@@ -63,6 +63,8 @@
     html {
       scroll-behavior: smooth;
       background-color: var(--bg-dark);
+      overflow-x: hidden;
+      max-width: 100vw;
     }
 
     body {
@@ -71,6 +73,8 @@
       font-family: var(--font-sans);
       line-height: 1.5;
       overflow-x: hidden;
+      max-width: 100vw;
+      width: 100%;
       -webkit-font-smoothing: antialiased;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
@@ -102,6 +106,9 @@
       padding: 0 28px;
       position: relative;
       z-index: 1;
+      overflow-x: hidden;
+      box-sizing: border-box;
+      width: 100%;
     }
 
     /* Typography */
@@ -127,12 +134,12 @@
       text-decoration: none;
     }
 
-    /* Section Styling */
+    /* Section Styling: pt-28 desktop padding ensures zero navbar overlap */
     .section, section[id] {
-      padding: 120px 0;
+      padding: 112px 0 96px 0;
       position: relative;
       border-bottom: 1px solid var(--border-hairline);
-      scroll-margin-top: 100px;
+      scroll-margin-top: 112px;
     }
 
     .section-header {
@@ -338,21 +345,26 @@
       }
     }
 
-    /* Mobile Drawer Menu */
+    /* Mobile Drawer Menu: backdrop-blur-md bg-black/90 */
     .mobile-menu-drawer {
       position: fixed;
       top: 80px;
-      left: 20px;
-      right: 20px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-card);
+      left: 16px;
+      right: 16px;
+      background: rgba(0, 0, 0, 0.90);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-radius: var(--radius-lg);
       padding: 24px;
       display: none;
       flex-direction: column;
-      gap: 16px;
-      z-index: 999;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      gap: 14px;
+      z-index: 1001;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.75);
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .mobile-menu-drawer.open {
@@ -362,17 +374,28 @@
     .mobile-menu-drawer a {
       font-size: 16px;
       font-weight: 600;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border-hairline);
+      padding: 12px 0;
+      color: #FFFFFF;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.2s ease, padding-left 0.2s ease;
+    }
+
+    .mobile-menu-drawer a:hover {
+      color: #D4AF37;
+      padding-left: 4px;
     }
 
     /* HERO SECTION */
     .hero-section {
-      min-height: 94vh;
+      min-height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-top: 150px;
+      padding-top: 140px;
       padding-bottom: 80px;
       position: relative;
       overflow: hidden;
@@ -1334,71 +1357,157 @@
       line-height: 1.65;
     }
 
-    /* CONTACT / BOOKING SECTION */
+    /* CONTACT / BOOKING SECTION (Ultra-clean, Linear & Stripe inspired) */
+    #contact.section, section#contact {
+      background-color: #F8FAFC !important;
+      border-top: 1px solid #E2E8F0;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
     .contact-box-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 48px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-lg);
-      padding: 56px 44px;
-      box-shadow: 0 8px 32px rgba(43, 58, 103, 0.08);
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      background: #FFFFFF !important; /* bg-white */
+      border: 1px solid #E2E8F0 !important; /* border border-slate-200 */
+      border-radius: 24px !important; /* rounded-3xl */
+      padding: 48px !important;
+      box-shadow: 0 20px 25px -5px rgba(203, 213, 225, 0.6), 0 8px 10px -6px rgba(203, 213, 225, 0.4) !important; /* shadow-xl shadow-slate-200/60 */
+      color: #0F172A !important;
+      position: relative;
     }
 
     @media (max-width: 860px) {
       .contact-box-grid {
         grid-template-columns: 1fr;
-        padding: 36px 24px;
+        padding: 28px 20px 36px 20px !important;
+        gap: 32px;
       }
     }
 
     .contact-input-field {
-      margin-bottom: 22px;
+      margin-bottom: 18px;
+      width: 100%;
     }
 
     .contact-input-field label {
       display: block;
       font-family: var(--font-mono);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-      font-weight: 600;
+      font-size: 12px !important; /* text-xs */
+      font-weight: 700 !important; /* font-bold */
+      letter-spacing: 0.05em !important; /* tracking-wider */
+      color: #334155 !important; /* text-slate-700 */
+      text-transform: uppercase !important;
+      margin-bottom: 8px !important; /* mb-2 */
     }
 
+    /* Clean Inputs, Selects & Textarea */
     .contact-input-field input,
     .contact-input-field textarea,
     .contact-input-field select {
-      width: 100%;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-sm);
-      color: var(--text-primary);
-      font-family: var(--font-sans);
-      font-size: 15px;
-      padding: 14px 16px;
-      outline: none;
-      transition: border-color 0.2s ease;
+      width: 100% !important;
+      min-height: 48px !important;
+      background: #FFFFFF !important; /* bg-white */
+      border: 1px solid #CBD5E1 !important; /* border border-slate-300 */
+      border-radius: 12px !important; /* rounded-xl */
+      color: #0F172A !important; /* text-slate-900 */
+      font-family: var(--font-sans) !important;
+      font-size: 15px !important;
+      font-weight: 500 !important;
+      padding: 12px 16px !important; /* py-3 px-4 */
+      outline: none !important;
+      box-sizing: border-box !important;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important; /* shadow-sm */
+      transition: all 0.2s ease !important;
+    }
+
+    .contact-input-field input::placeholder,
+    .contact-input-field textarea::placeholder {
+      color: #94A3B8 !important; /* placeholder:text-slate-400 */
     }
 
     .contact-input-field input:focus,
     .contact-input-field textarea:focus,
     .contact-input-field select:focus {
-      border-color: var(--accent-purple);
-      box-shadow: 0 0 0 3px rgba(43, 58, 103, 0.1);
+      border-color: #2563EB !important; /* focus:border-blue-600 */
+      box-shadow: 0 0 0 4px #DBEAFE !important; /* focus:ring-4 focus:ring-blue-100 */
+      outline: none !important;
     }
 
+    .contact-input-field select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23334155' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+      background-repeat: no-repeat !important;
+      background-position: right 16px center !important;
+      padding-right: 42px !important;
+      cursor: pointer;
+    }
+
+    .contact-input-field select option {
+      background: #FFFFFF;
+      color: #0F172A;
+      padding: 8px;
+    }
+
+    .contact-input-field textarea {
+      min-height: 110px !important;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    /* Form Submit Button: Full-width, high-contrast sleek design */
+    #leadContactForm button[type="submit"] {
+      width: 100% !important;
+      min-height: 50px !important;
+      background: #0F172A !important; /* bg-slate-900 */
+      color: #FFFFFF !important;
+      font-family: var(--font-heading) !important;
+      font-weight: 600 !important; /* font-medium */
+      font-size: 15px !important;
+      padding: 14px 20px !important; /* py-3.5 */
+      border-radius: 12px !important; /* rounded-xl */
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1) !important; /* shadow-md */
+      border: none !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      transition: all 0.2s ease !important;
+      margin-top: 10px !important;
+    }
+
+    #leadContactForm button[type="submit"]:hover {
+      background: #1E293B !important; /* hover:bg-slate-800 */
+      transform: translateY(-1px) !important;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Right-Hand Contact Info Box ([ DIRECT LINES ]) */
     .contact-direct-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-md);
-      padding: 32px 28px;
+      background: #F8FAFC !important; /* bg-slate-50 */
+      border: 1px solid rgba(226, 232, 240, 0.8) !important; /* border border-slate-200/80 */
+      border-radius: 16px !important; /* rounded-2xl */
+      padding: 32px !important; /* p-8 */
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 24px;
+      gap: 28px;
+    }
+
+    .direct-lines-tag {
+      font-size: 12px !important; /* text-xs */
+      font-weight: 600 !important; /* font-semibold */
+      letter-spacing: 0.05em !important; /* tracking-wider */
+      color: #2563EB !important; /* text-blue-600 */
+      text-transform: uppercase !important;
+      background: #EFF6FF !important; /* bg-blue-50 */
+      padding: 4px 12px !important; /* px-3 py-1 */
+      border-radius: 9999px !important; /* rounded-full */
+      width: fit-content !important; /* w-fit */
+      display: inline-block;
+      margin-bottom: 20px;
     }
 
     .founder-contact-pills {
@@ -1407,15 +1516,111 @@
       gap: 14px;
     }
 
-    .phone-call-row {
+    .phone-call-row a {
+      color: #0F172A !important; /* text-slate-900 */
+      font-weight: 700 !important; /* font-bold */
+      font-size: 20px !important; /* text-xl */
       font-family: var(--font-heading);
-      font-size: 26px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s ease !important;
     }
 
     .phone-call-row a:hover {
-      color: var(--accent-highlight);
+      color: #2563EB !important; /* hover:text-blue-600 */
+    }
+
+    .contact-direct-card .availability-note {
+      color: #64748B !important; /* text-slate-500 */
+      font-size: 14px !important; /* text-sm */
+      line-height: 1.5;
+      margin-top: 14px;
+    }
+
+    .contact-direct-card .leadership-box {
+      border-top: 1px solid #E2E8F0;
+      padding-top: 20px;
+    }
+
+    .contact-direct-card .leadership-label {
+      font-size: 12px;
+      color: #64748B;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .contact-direct-card .leadership-names {
+      font-weight: 700;
+      color: #0F172A;
+      font-size: 15px;
+    }
+
+    .contact-direct-card .leadership-sub {
+      font-size: 13px;
+      color: #64748B;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* SLEEK TOAST NOTIFICATION */
+    .toast-container {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+    }
+    .toast-pill {
+      background: rgba(13, 17, 26, 0.95);
+      border: 1px solid rgba(6, 182, 212, 0.5);
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      pointer-events: auto;
+      animation: toastIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateY(-10px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes btnSpin {
+      to { transform: rotate(360deg); }
+    }
+    .btn-spinner {
+      animation: btnSpin 0.75s linear infinite;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    @media (max-width: 860px) {
+      .toast-container {
+        top: 16px;
+        right: 16px;
+        left: 16px;
+        align-items: center;
+      }
+      .toast-pill {
+        width: 100%;
+        max-width: 360px;
+        justify-content: center;
+        text-align: center;
+      }
     }
 
     /* FOOTER */
@@ -1490,46 +1695,92 @@
       color: var(--text-muted);
     }
 
-    /* AI ASSISTANT CHATBOT widget */
+    /* FLOATING WHATSAPP BUTTON: Refined pill (bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg) */
+    .floating-whatsapp-btn {
+      position: fixed;
+      bottom: 20px; /* bottom-5 */
+      left: 20px;   /* left-5 */
+      background: #059669 !important; /* bg-emerald-600 */
+      color: #FFFFFF !important;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-full);
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      cursor: pointer;
+      box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.4), 0 4px 6px -4px rgba(5, 150, 105, 0.2) !important; /* shadow-lg */
+      z-index: 40; /* z-40 */
+      text-decoration: none;
+      transition: all 0.2s ease !important;
+    }
+
+    .floating-whatsapp-btn:hover {
+      transform: translateY(-2px);
+      background: #047857 !important; /* hover:bg-emerald-700 */
+      box-shadow: 0 20px 25px -5px rgba(5, 150, 105, 0.5) !important;
+      color: #FFFFFF !important;
+    }
+
+    .whatsapp-icon-pulse {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .floating-whatsapp-text {
+      font-size: 13px;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.01em;
+    }
+
+    /* AI ASSISTANT CHATBOT widget: Clean white/slate glassmorphism card (bg-white/95 text-slate-800 border border-slate-200 shadow-xl) */
     .ai-chat-launcher {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: var(--accent-purple);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      bottom: 20px; /* bottom-5 */
+      right: 20px;  /* right-5 */
+      background: rgba(255, 255, 255, 0.95) !important; /* bg-white/95 */
+      color: #1E293B !important; /* text-slate-800 */
+      border: 1px solid #E2E8F0 !important; /* border border-slate-200 */
       border-radius: var(--radius-full);
-      padding: 10px 20px;
+      padding: 10px 18px;
       display: flex;
       align-items: center;
       gap: 10px;
       cursor: pointer;
-      box-shadow: 0 8px 30px rgba(43, 58, 103, 0.35);
-      z-index: 998;
-      transition: var(--transition);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important; /* shadow-xl */
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 40; /* z-40 */
+      transition: all 0.2s ease !important;
     }
 
     .ai-chat-launcher:hover {
-      transform: translateY(-3px);
-      background: #1E2B52;
-      box-shadow: 0 14px 40px rgba(43, 58, 103, 0.5);
+      transform: translateY(-2px);
+      background: #FFFFFF !important;
+      border-color: #CBD5E1 !important;
+      box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.12) !important;
     }
 
     .ai-avatar-pulse {
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
+      background: #EFF6FF;
+      border: 1px solid #DBEAFE;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      font-size: 14px;
+      color: #2563EB;
+      font-size: 13px;
     }
 
     .ai-launcher-text {
       font-size: 13px;
       font-weight: 600;
-      color: #FFFFFF;
+      color: #1E293B !important; /* text-slate-800 */
     }
 
     /* Chatbot Modal Dialog */
@@ -1667,6 +1918,37 @@
 
     .chat-send-btn:hover {
       background: #1E2B52;
+    }
+
+    /* DIRECT 'CONNECT ON WHATSAPP' ESCALATION BUTTON */
+    .chat-escalation-bar {
+      padding: 10px 14px 12px;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-hairline);
+      text-align: center;
+    }
+
+    .chat-escalation-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      min-height: 38px;
+      padding: 8px 14px;
+      background: #25D366;
+      color: #000000;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+    }
+
+    .chat-escalation-btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.94;
     }
 
     /* Reveal Animations */
@@ -1809,7 +2091,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      -webkit-overflow-scrolling: touch !important;
       position: relative;
     }
 
@@ -1818,6 +2102,9 @@
       height: 100%;
       border: none;
       background: #FFFFFF;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      touch-action: pan-y !important;
       transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -1828,6 +2115,8 @@
       border-radius: 36px;
       border: 10px solid #1C1C24;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
     }
 
     /* =========================================================================
@@ -1840,20 +2129,34 @@
 
       body {
         -webkit-tap-highlight-color: transparent;
-        overflow-x: hidden;
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+        width: 100% !important;
       }
 
       .wrap {
         padding-left: 18px !important;
         padding-right: 18px !important;
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
       }
 
+      /* Sections: pt-24 on mobile prevents floating navbar overlap */
       .section, section[id] {
-        scroll-margin-top: 85px !important;
+        padding-top: 96px !important; /* pt-24 */
+        padding-bottom: 64px !important;
+        scroll-margin-top: 96px !important; /* pt-24 */
+      }
+
+      #contact.section, section#contact {
+        padding-top: 96px !important;
+        padding-bottom: 120px !important; /* Generous bottom padding so floating widgets never obscure buttons */
+        scroll-margin-top: 96px !important;
       }
 
       .section-pad {
-        padding-top: 64px !important;
+        padding-top: 96px !important;
         padding-bottom: 64px !important;
       }
 
@@ -1890,23 +2193,28 @@
         display: flex !important;
       }
 
+      /* Mobile Hamburger Menu: backdrop-blur-md bg-black/90 */
       .mobile-menu-drawer {
         top: 68px !important;
         left: 12px !important;
         right: 12px !important;
-        padding: 22px 20px !important;
+        padding: 22px 18px !important;
         gap: 12px !important;
-        border-radius: 22px !important;
-        background: rgba(14, 14, 20, 0.96) !important;
-        border: 1px solid rgba(255, 255, 255, 0.15) !important;
-        backdrop-filter: blur(28px) !important;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8) !important;
+        border-radius: 20px !important;
+        background: rgba(0, 0, 0, 0.90) !important; /* bg-black/90 */
+        border: 1px solid rgba(255, 255, 255, 0.12) !important; /* border-white/10 */
+        backdrop-filter: blur(16px) !important; /* backdrop-blur-md */
+        -webkit-backdrop-filter: blur(16px) !important;
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.85) !important;
+        max-height: calc(100vh - 84px) !important;
+        overflow-y: auto !important; /* doesn't cut off */
+        -webkit-overflow-scrolling: touch;
       }
 
       .mobile-menu-drawer a {
         font-size: 16px !important;
         font-weight: 600 !important;
-        padding: 10px 4px !important;
+        padding: 12px 6px !important;
         color: #FFFFFF !important;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
         text-decoration: none !important;
@@ -1915,9 +2223,9 @@
         align-items: center !important;
       }
 
-      /* 2. Hero Mobile Optimization */
+      /* 2. Hero Mobile Optimization: pt-24 safe-area */
       .hero-section {
-        padding-top: 110px !important;
+        padding-top: 96px !important; /* pt-24 */
         padding-bottom: 50px !important;
         min-height: auto !important;
       }
@@ -2314,10 +2622,12 @@
         flex-shrink: 0 !important;
       }
 
-      /* 11. Contact & Founder Lines */
-      .contact-split-grid {
+      /* 11. Contact & Founder Lines Mobile */
+      .contact-box-grid {
         grid-template-columns: 1fr !important;
-        gap: 24px !important;
+        padding: 28px 18px 36px 18px !important;
+        gap: 28px !important;
+        margin-bottom: 24px !important;
       }
 
       .contact-form-card,
@@ -2329,9 +2639,31 @@
       .contact-input-field input,
       .contact-input-field select,
       .contact-input-field textarea {
-        font-size: 16px !important;
-        /* Crucial: Prevents iOS Safari auto-zoom */
+        width: 100% !important;
+        min-height: 48px !important;
+        font-size: 16px !important; /* Prevents iOS Safari auto-zoom */
         padding: 12px 14px !important;
+        border-radius: 12px !important; /* rounded-xl */
+        border: 1px solid rgba(255, 255, 255, 0.10) !important; /* border-white/10 */
+        background: rgba(255, 255, 255, 0.04) !important; /* bg-white/[0.04] */
+        color: #FFFFFF !important;
+        box-sizing: border-box !important;
+      }
+
+      #leadContactForm button[type="submit"] {
+        width: 100% !important;
+        min-height: 52px !important;
+        border-radius: 12px !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        margin-top: 10px !important;
+        position: relative !important;
+        z-index: 5 !important;
+        cursor: pointer !important;
       }
 
       /* 12. Footer */
@@ -2356,11 +2688,23 @@
         height: calc(100vh - 54px) !important;
       }
 
-      /* 14. Floating AI Assistant Widget */
-      .ai-chat-launcher {
-        bottom: 16px !important;
-        right: 14px !important;
+      /* 14. Floating Widgets: fixed bottom-5 left-5 and right-5 z-40 */
+      .floating-whatsapp-btn {
+        bottom: 20px !important; /* bottom-5 */
+        left: 20px !important;   /* left-5 */
         padding: 8px 14px !important;
+        z-index: 40 !important;  /* z-40 */
+      }
+
+      .floating-whatsapp-text {
+        font-size: 12px !important;
+      }
+
+      .ai-chat-launcher {
+        bottom: 20px !important; /* bottom-5 */
+        right: 20px !important;  /* right-5 */
+        padding: 8px 14px !important;
+        z-index: 40 !important;  /* z-40 */
       }
 
       .ai-launcher-text {
@@ -2368,13 +2712,14 @@
       }
 
       .ai-chat-modal {
-        bottom: 64px !important;
-        right: 10px !important;
-        left: 10px !important;
-        width: calc(100vw - 20px) !important;
-        max-width: calc(100vw - 20px) !important;
-        height: 480px !important;
+        bottom: 70px !important;
+        right: 12px !important;
+        left: 12px !important;
+        width: calc(100vw - 24px) !important;
+        max-width: calc(100vw - 24px) !important;
+        height: 460px !important;
         max-height: 75vh !important;
+        z-index: 45 !important;
       }
     }
   </style>
@@ -3022,91 +3367,91 @@
   </section>
 
   <!-- CONTACT SECTION -->
-  <section class="section wrap" id="contact">
-    <div class="section-header reveal">
-      <div class="badge-mono">[ Contact Founders ]</div>
-      <h2 class="section-title">Let's build your digital experience</h2>
-      <p class="section-subtitle">Fill out the quick project inquiry below or connect directly on WhatsApp.</p>
-    </div>
+  <section class="section contact-section-full" id="contact" style="background-color: #F8FAFC !important;">
+    <div class="wrap">
+      <div class="section-header reveal">
+        <div class="badge-mono">[ Contact Founders ]</div>
+        <h2 class="section-title">Let's build your digital experience</h2>
+        <p class="section-subtitle">Fill out the quick project inquiry below or connect directly on WhatsApp.</p>
+      </div>
 
-    <div class="contact-box-grid reveal">
-      <!-- Form -->
-      <form id="leadContactForm" onsubmit="handleLeadSubmit(event)">
-        <div class="contact-input-field">
-          <label for="clientName">Your Name *</label>
-          <input type="text" id="clientName" required placeholder="Gargi / Shubham">
-        </div>
-
-        <div class="contact-input-field">
-          <label for="clientEmail">Email Address *</label>
-          <input type="email" id="clientEmail" required placeholder="you@company.com">
-        </div>
-
-        <div class="contact-input-field">
-          <label for="clientPhone">Phone / WhatsApp Number</label>
-          <input type="tel" id="clientPhone" placeholder="+91 98765 43210">
-        </div>
-
-        <div class="contact-input-field">
-          <label for="projectTier">Interested Plan / Service</label>
-          <select id="projectTier">
-            <option value="Business Plan (₹9,999)">Business Plan (₹9,999) - Recommended</option>
-            <option value="Starter Plan (₹5,999)">Starter Plan (₹5,999)</option>
-            <option value="Growth Plan (₹15,999)">Growth Plan (₹15,999)</option>
-            <option value="Custom Project Inquiry">Custom Project Inquiry</option>
-          </select>
-        </div>
-
-        <div class="contact-input-field">
-          <label for="clientMessage">About Your Project *</label>
-          <textarea id="clientMessage" rows="4" required
-            placeholder="Tell us about your brand, goals, and timeline..."></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width:100%; font-size:16px; padding:16px;">
-          Send Message via WhatsApp ↗
-        </button>
-      </form>
-
-      <!-- Direct Contact Info -->
-      <div class="contact-direct-card">
-        <div>
-          <div class="badge-mono" style="margin-bottom:16px;">[ Direct Lines ]</div>
-          <div class="founder-contact-pills">
-            <div class="phone-call-row">
-              <a href="tel:+917988207356">+91 79882 07356</a>
-            </div>
-            <div class="phone-call-row" style="margin-top:-6px;">
-              <a href="tel:+917015436857">+91 70154 36857</a>
-            </div>
-            <div class="phone-call-row" style="margin-top:-6px;">
-              <a href="mailto:sharvonix@gmail.com" style="display:flex; align-items:center; gap:8px;">
-                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"
-                  style="flex-shrink:0;">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
-                sharvonix@gmail.com
-              </a>
-            </div>
+      <div class="contact-box-grid reveal">
+        <!-- Form -->
+        <form id="leadContactForm" onsubmit="handleLeadSubmit(event)">
+          <div class="contact-input-field">
+            <label for="clientName">Your Name</label>
+            <input type="text" id="clientName" placeholder="Gargi / Shubham">
           </div>
-          <p style="margin-top:12px; font-size:14px; color:var(--text-muted);">
-            Available for WhatsApp chats & discovery calls daily (9 AM – 9 PM IST).
-          </p>
-        </div>
 
-        <div style="border-top:1px solid var(--border-hairline); padding-top:20px;">
-          <div
-            style="font-size:13px; color:var(--text-muted); margin-bottom:8px; font-family:var(--font-mono); text-transform:uppercase;">
-            Studio Leadership
+          <div class="contact-input-field">
+            <label for="clientEmail">Email Address</label>
+            <input type="email" id="clientEmail" placeholder="you@company.com">
           </div>
-          <div style="font-weight:700; color:var(--text-primary); font-size:15px;">
-            Gargi Sharma (Founder) &amp; Shubham Sharma (Co-founder)
+
+          <div class="contact-input-field">
+            <label for="clientPhone">Phone / WhatsApp Number</label>
+            <input type="tel" id="clientPhone" placeholder="+91 98765 43210">
           </div>
-          <a href="https://wa.me/917988207356?text=Hi%20Gargi%20and%20Shubham,%20I%20would%20like%20to%20discuss%20a%20website%20project."
-            target="_blank" class="btn btn-outline" style="width:100%; margin-top:18px;">
-            Direct WhatsApp Chat
-          </a>
+
+          <div class="contact-input-field">
+            <label for="projectTier">Interested Plan / Service</label>
+            <select id="projectTier">
+              <option value="Business Plan (₹9,999)">Business Plan (₹9,999) - Recommended</option>
+              <option value="Starter Plan (₹5,999)">Starter Plan (₹5,999)</option>
+              <option value="Growth Plan (₹15,999)">Growth Plan (₹15,999)</option>
+              <option value="Custom Project Inquiry">Custom Project Inquiry</option>
+            </select>
+          </div>
+
+          <div class="contact-input-field">
+            <label for="clientMessage">About Your Project</label>
+            <textarea id="clientMessage" rows="4"
+              placeholder="Tell us about your brand, goals, and timeline..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="leadSubmitBtn">
+            Send Message via WhatsApp ↗
+          </button>
+        </form>
+
+        <!-- Direct Contact Info -->
+        <div class="contact-direct-card">
+          <div>
+            <span class="direct-lines-tag">[ Direct Lines ]</span>
+            <div class="founder-contact-pills">
+              <div class="phone-call-row">
+                <a href="tel:+917988207356">+91 79882 07356</a>
+              </div>
+              <div class="phone-call-row">
+                <a href="tel:+917015436857">+91 70154 36857</a>
+              </div>
+              <div class="phone-call-row">
+                <a href="mailto:sharvonix@gmail.com">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                    style="flex-shrink:0;">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  sharvonix@gmail.com
+                </a>
+              </div>
+            </div>
+            <p class="availability-note">
+              Available for WhatsApp chats &amp; discovery calls daily (9 AM – 9 PM IST).
+            </p>
+          </div>
+
+          <div class="leadership-box">
+            <div class="leadership-label">
+              Studio Leadership
+            </div>
+            <div class="leadership-names">
+              Gargi Sharma (Founder) &amp; Shubham Sharma (Co-founder)
+            </div>
+            <p class="leadership-sub">
+              Direct founder-led engineering &amp; design on every project.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -3135,6 +3480,7 @@
         <a href="#process">Our Process</a>
         <a href="#pricing">Pricing Plans</a>
         <a href="#faqs">FAQs</a>
+        <a href="admin/index.html" style="opacity: 0.7; font-size: 13px;">Studio Admin 🔒</a>
       </div>
 
       <div class="footer-col">
@@ -3185,10 +3531,10 @@
 
 
       <div class="preview-right-actions">
-        <a href="#" id="previewExternalLink" target="_blank" class="btn btn-outline"
-          style="padding: 8px 16px; font-size: 13px; gap: 6px;">
-          <span>Open in New Tab</span>
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+        <a href="#" id="previewExternalLink" target="_blank" class="btn btn-primary"
+          style="padding: 8px 18px; font-size: 13px; font-weight: 700; gap: 6px; background: #2563EB; color: #fff; border-radius: 9999px; text-decoration: none; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);">
+          <span>Open Full Site ↗</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
             <polyline points="15 3 21 3 21 9" />
             <line x1="10" y1="14" x2="21" y2="3" />
@@ -3199,11 +3545,23 @@
     </div>
 
     <div class="preview-frame-container" id="previewFrameContainer">
-      <iframe id="previewIframe" src="" frameborder="0" allowfullscreen></iframe>
+      <iframe id="previewIframe" src="" frameborder="0" scrolling="yes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen tabindex="0" style="overflow-y: auto; -webkit-overflow-scrolling: touch; touch-action: pan-y;"></iframe>
     </div>
   </div>
 
-  <!-- SHARVONIX AI ASSISTANT LAUNCHER -->
+  <!-- FLOATING WHATSAPP BUTTON (BOTTOM-LEFT) -->
+  <a href="https://wa.me/917988207356?text=Hi%20Gargi%20and%20Shubham,%20I%20would%20like%20to%20discuss%20a%20website%20project%20for%20my%20brand."
+    target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" id="floatingWhatsappBtn"
+    aria-label="Direct WhatsApp Chat with Founders" title="Chat directly with Founders on WhatsApp">
+    <div class="whatsapp-icon-pulse">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zM12.05 3.67c4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.82-1.3-1.26-2.82-1.26-4.38 0-4.54 3.7-8.24 8.25-8.24zm4.52 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+      </svg>
+    </div>
+    <span class="floating-whatsapp-text">Direct WhatsApp</span>
+  </a>
+
+  <!-- SHARVONIX AI ASSISTANT LAUNCHER (BOTTOM-RIGHT) -->
   <div class="ai-chat-launcher" id="aiChatLauncher" onclick="toggleAiChat()">
     <span class="live-dot" style="background:#22C55E; width:8px; height:8px;"></span>
     <span class="ai-launcher-text" style="font-size:13px; font-weight:700; color:#fff;">Talk to Sharvonix AI</span>
@@ -3245,6 +3603,17 @@
       <input type="text" id="chatInput" placeholder="Ask a question..."
         onkeydown="if(event.key==='Enter') sendCustomChat()">
       <button class="chat-send-btn" onclick="sendCustomChat()">↗</button>
+    </div>
+
+    <!-- DIRECT 'CONNECT ON WHATSAPP' ESCALATION BUTTON -->
+    <div class="chat-escalation-bar">
+      <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I'm%20chatting%20with%20your%20AI%20and%20would%20like%20to%20connect%20directly!"
+        target="_blank" class="chat-escalation-btn" id="chatEscalationBtn">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2z"/>
+        </svg>
+        <span>Connect on WhatsApp ↗</span>
+      </a>
     </div>
   </div>
 
@@ -3377,7 +3746,7 @@
         </div>
         <div class="project-card" onclick="openProjectPreview(${realIndex})" title="Preview ${p.title}">
           ${mediaHTML}
-          <div class="project-arrow-badge">↗</div>
+          <a href="${p.link && p.link !== '#' ? p.link : 'javascript:void(0)'}" target="_blank" rel="noopener noreferrer" class="project-arrow-badge" title="Open live site directly in new tab" onclick="event.stopPropagation()">↗</a>
         </div>
       `;
         projectsGrid.appendChild(item);
@@ -3445,26 +3814,114 @@
       if (mobileDrawer) mobileDrawer.classList.remove('open');
     }
 
-    // 7. Lead Form Submit -> WhatsApp Pre-filled redirect
+    // 7. Supabase Database Configuration & Lead Form Submit
+    // Inhe aap apne Supabase Dashboard -> Project Settings -> API se copy karke yahan paste kar sakte hain:
+    const SUPABASE_CONFIG = {
+      url: localStorage.getItem('sharvonix_supabase_url') || window.SHARVONIX_SUPABASE_URL || 'https://YOUR_PROJECT_ID.supabase.co',
+      anonKey: localStorage.getItem('sharvonix_supabase_anon_key') || window.SHARVONIX_SUPABASE_ANON_KEY || 'YOUR_SUPABASE_ANON_KEY'
+    };
+
+    function showToast(message, isSuccess = true, duration = 4500) {
+      let container = document.getElementById('toastContainer');
+      if (!container) {
+        container = document.createElement('div');
+        container.id = 'toastContainer';
+        container.className = 'toast-container';
+        document.body.appendChild(container);
+      }
+      const toast = document.createElement('div');
+      toast.className = 'toast-pill';
+      toast.style.borderColor = isSuccess ? '#22C55E' : '#EF4444';
+      toast.innerHTML = `
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:${isSuccess ? 'rgba(34, 197, 94, 0.2)' : 'rgba(239, 68, 68, 0.2)'}; color:${isSuccess ? '#22C55E' : '#EF4444'}; font-weight:800; font-size:13px;">${isSuccess ? '✓' : '✕'}</span>
+        <span>${message}</span>
+      `;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(-10px) scale(0.95)';
+        setTimeout(() => toast.remove(), 300);
+      }, duration);
+    }
+
     function handleLeadSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('clientName').value;
-      const email = document.getElementById('clientEmail').value;
-      const phone = document.getElementById('clientPhone').value || 'Not provided';
-      const tier = document.getElementById('projectTier').value;
-      const message = document.getElementById('clientMessage').value;
+      if (e) e.preventDefault();
 
-      const formattedText = encodeURIComponent(
-        `*New Project Inquiry — Sharvonix*\n\n` +
-        `👤 *Name:* ${name}\n` +
-        `📧 *Email:* ${email}\n` +
-        `📱 *Phone:* ${phone}\n` +
-        `📦 *Selected Plan:* ${tier}\n\n` +
-        `📝 *Project Details:*\n${message}`
-      );
+      const nameInput = document.getElementById('clientName');
+      const phoneInput = document.getElementById('clientPhone');
+      const emailInput = document.getElementById('clientEmail');
+      const tierInput = document.getElementById('projectTier');
+      const messageInput = document.getElementById('clientMessage');
 
-      window.open(`https://wa.me/917988207356?text=${formattedText}`, '_blank');
-      document.getElementById('leadContactForm').reset();
+      const rawName = nameInput ? nameInput.value.trim() : '';
+      const rawEmail = emailInput ? emailInput.value.trim() : '';
+      const rawPhone = phoneInput ? phoneInput.value.trim() : '';
+      const plan = tierInput ? tierInput.value : 'Business Plan (₹9,999)';
+      const rawMessage = messageInput ? messageInput.value.trim() : '';
+
+      // Lead data payload
+      const leadName = rawName || 'Direct WhatsApp Visitor';
+      const leadPhone = rawPhone || 'Not provided';
+      const leadEmail = rawEmail || 'Not provided';
+      const leadMessage = rawMessage || 'Direct WhatsApp inquiry from website contact form';
+      const leadSource = (rawName || rawPhone) ? 'website_form' : 'direct_whatsapp';
+
+      // 1. Instant local backup save
+      try {
+        const localLeads = JSON.parse(localStorage.getItem('sharvonix_leads') || '[]');
+        localLeads.push({
+          name: leadName,
+          email: leadEmail,
+          phone: leadPhone,
+          plan: plan,
+          message: leadMessage,
+          source: leadSource,
+          status: 'New',
+          created_at: new Date().toISOString()
+        });
+        localStorage.setItem('sharvonix_leads', JSON.stringify(localLeads));
+      } catch (err) {}
+
+      // 2. Supabase background send with keepalive (guarantees delivery on redirect)
+      const isConfigured = SUPABASE_CONFIG.url && 
+                           SUPABASE_CONFIG.anonKey && 
+                           !SUPABASE_CONFIG.url.includes('YOUR_PROJECT_ID');
+      
+      if (isConfigured) {
+        try {
+          fetch(`${SUPABASE_CONFIG.url}/rest/v1/leads`, {
+            method: 'POST',
+            keepalive: true,
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': SUPABASE_CONFIG.anonKey,
+              'Authorization': `Bearer ${SUPABASE_CONFIG.anonKey}`
+            },
+            body: JSON.stringify({
+              name: leadName,
+              email: leadEmail,
+              phone: leadPhone,
+              plan: plan,
+              message: leadMessage,
+              source: leadSource,
+              status: 'New'
+            })
+          }).catch(() => {});
+        } catch (err) {}
+      }
+
+      // 3. Format WhatsApp message
+      let whatsappText = '';
+      if (rawName) {
+        whatsappText = `Hi Sharvonix, my name is ${rawName}. I'm interested in the ${plan} for my brand.${rawMessage ? ' Here are my project details: ' + rawMessage : ''}`;
+      } else {
+        whatsappText = `Hi Sharvonix, I would like to discuss a website project for my brand. (Interested in: ${plan})${rawMessage ? '\n\nDetails: ' + rawMessage : ''}`;
+      }
+
+      const waUrl = `https://wa.me/917988207356?text=${encodeURIComponent(whatsappText)}`;
+
+      // 4. DIRECT INSTANT REDIRECT (Never blocked by mobile popup blockers!)
+      window.location.href = waUrl;
     }
 
     // 8. Interactive Sharvonix AI Chatbot Logic
@@ -3496,21 +3953,88 @@
       respondToChat(txt);
     }
 
-    function respondToChat(query) {
-      const q = query.toLowerCase();
-      setTimeout(() => {
-        if (q.includes('price') || q.includes('cost') || q.includes('package') || q.includes('plan')) {
-          appendChatMsg(`Our transparent packages are:<br>• <b>Starter Plan:</b> ₹5,999 (1-3 pages, mobile-first, 3-5 days)<br>• <b>Business Plan:</b> ₹9,999 (up to 6 pages, custom animations, SEO, 1 mo support)<br>• <b>Growth Plan:</b> ₹15,999 (Full e-commerce / custom apps).<br><br><a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I'm%20inquiring%20about%20your%20pricing%20plans." target="_blank" style="color:var(--accent-purple); font-weight:700;">Chat with founders on WhatsApp ↗</a>`);
-        } else if (q.includes('founder') || q.includes('who') || q.includes('gargi') || q.includes('shubham')) {
-          appendChatMsg(`Sharvonix was founded by <b>Gargi Sharma</b> (Founder) & <b>Shubham Sharma</b> (Co-founder). You get direct founder access without any middlemen or account managers!`);
-        } else if (q.includes('fast') || q.includes('time') || q.includes('deliver') || q.includes('days')) {
-          appendChatMsg(`We deliver standard websites in just <b>3 to 7 days</b>, and complete e-commerce stores in 10-14 days.`);
-        } else if (q.includes('start') || q.includes('book') || q.includes('hire') || q.includes('contact') || q.includes('email') || q.includes('instagram') || q.includes('ig') || q.includes('mail')) {
-          appendChatMsg(`You can connect with us directly:<br>• 📧 <b>Email:</b> <a href="mailto:sharvonix@gmail.com" style="color:var(--accent-purple); font-weight:700;">sharvonix@gmail.com</a><br>• 📸 <b>Instagram:</b> <a href="https://instagram.com/sharvonix" target="_blank" style="color:var(--accent-purple); font-weight:700;">@sharvonix</a><br>• 📱 <b>WhatsApp:</b> +91 79882 07356 / +91 70154 36857<br><br><a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I'm%20ready%20to%20start%20my%20website%20project!" target="_blank" class="btn btn-primary" style="padding:8px 16px; font-size:12px; margin-top:6px;">Chat on WhatsApp Now ↗</a>`);
-        } else {
-          appendChatMsg(`Thank you for reaching out! Sharvonix specializes in custom digital experiences starting from ₹5,999. Would you like to discuss your project directly with Gargi & Shubham on WhatsApp?<br><br><a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I%20have%20a%20question%20regarding%20my%20website." target="_blank" style="color:var(--accent-purple); font-weight:700;">Connect on WhatsApp ↗</a>`);
+    async function respondToChat(query) {
+      const typingId = 'typing_' + Date.now();
+      appendChatMsg('<span id="' + typingId + '" style="color:var(--text-muted); font-size:12px;">Sharvonix AI is thinking...</span>', 'bot');
+
+      const removeTyping = () => {
+        const el = document.getElementById(typingId);
+        if (el && el.parentElement) el.parentElement.remove();
+      };
+
+      // 1. Try calling the official /api/chat server route
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: query })
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.reply) {
+            removeTyping();
+            const formatted = data.reply
+              .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')
+              .replace(/\n/g, '<br>');
+            appendChatMsg(formatted, 'bot');
+            return;
+          }
         }
-      }, 450);
+      } catch (e) {
+        // Fallback to client-side strict guardrails engine
+      }
+
+      removeTyping();
+
+      // 2. Client-side Strict System Guardrails Engine (Exact System Prompt Matching)
+      const q = query.toLowerCase();
+
+      // Off-topic refusal guardrail
+      const offTopicKeywords = [
+        'capital of', 'who is president', 'weather', 'recipe', 'solve', 'calculate',
+        'python', 'java', 'homework', 'write a poem', 'tell a joke', 'who won', 'history',
+        'movie', 'actor', 'song', 'sports', 'cricket', 'crypto'
+      ];
+      for (const kw of offTopicKeywords) {
+        if (q.includes(kw)) {
+          appendChatMsg("I can only assist with Sharvonix web development and design inquiries. Would you like to discuss a project for your brand?", 'bot');
+          return;
+        }
+      }
+
+      // Lead capture / project interest
+      if (q.includes('start') || q.includes('hire') || q.includes('book') || q.includes('interested') || q.includes('build my') || q.includes('contact')) {
+        appendChatMsg(`We'd love to build your website! Please share your <b>Name</b> and <b>WhatsApp number</b> so Gargi and Shubham can reach out, or you can connect directly on WhatsApp at <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I'm%20ready%20to%20build%20a%20website%20for%20my%20brand." target="_blank" style="color:#25D366; font-weight:700;">+91 79882 07356 ↗</a>.`, 'bot');
+        return;
+      }
+
+      // Packages & Pricing
+      if (q.includes('price') || q.includes('cost') || q.includes('package') || q.includes('plan') || q.includes('rate') || q.includes('fee')) {
+        appendChatMsg(`Here are our studio packages:<br>• <b>Starter Plan:</b> ₹5,999 (Essential modern landing page, 3–5 days)<br>• <b>Business Plan:</b> ₹9,999 (Most Popular – multi-section custom web experience, animations, responsive design)<br>• <b>Custom Growth Plan:</b> ₹15,999 (Complex web app, custom AI integrations, priority delivery)<br><br><a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I'm%20interested%20in%20discussing%20your%20website%20packages." target="_blank" style="color:#25D366; font-weight:700;">Chat with founders on WhatsApp ↗</a>`, 'bot');
+        return;
+      }
+
+      // Turnaround & Delivery
+      if (q.includes('fast') || q.includes('time') || q.includes('deliver') || q.includes('duration') || q.includes('how long') || q.includes('days')) {
+        appendChatMsg(`Our turnaround time is <b>3 to 7 business days</b> with direct founder-level dedication from day one. Ready to get started?`, 'bot');
+        return;
+      }
+
+      // Founders
+      if (q.includes('founder') || q.includes('who are') || q.includes('gargi') || q.includes('shubham') || q.includes('team')) {
+        appendChatMsg(`Sharvonix is an independent digital experience studio founded by <b>Gargi Sharma</b> and <b>Shubham Sharma</b>. Direct WhatsApp: <a href="https://wa.me/917988207356" target="_blank" style="color:#25D366; font-weight:700;">+91 79882 07356</a>.`, 'bot');
+        return;
+      }
+
+      // Tech Stack
+      if (q.includes('tech') || q.includes('stack') || q.includes('framework') || q.includes('wordpress') || q.includes('next') || q.includes('react')) {
+        appendChatMsg(`We specialize in modern web technologies: <b>Next.js, Tailwind CSS, Supabase, Vercel, and Figma</b>—zero slow WordPress templates.`, 'bot');
+        return;
+      }
+
+      // Default polite studio response
+      appendChatMsg(`I can only assist with Sharvonix web development and design inquiries. Would you like to discuss a project for your brand? You can connect directly with Gargi and Shubham on WhatsApp at <a href="https://wa.me/917988207356" target="_blank" style="color:#25D366; font-weight:700;">+91 79882 07356 ↗</a>.`, 'bot');
     }
 
     // 9. In-App Live Project Previewer Functions
@@ -3531,6 +4055,14 @@
         extLink.href = p.link;
         extLink.style.display = 'inline-flex';
         iframe.src = p.link;
+
+        // Auto-focus the iframe on load so wheel and keyboard scroll work immediately
+        iframe.onload = () => {
+          try {
+            iframe.focus();
+            iframe.contentWindow?.focus();
+          } catch (e) {}
+        };
       } else {
         extLink.style.display = 'none';
         iframe.src = '';
@@ -3538,6 +4070,12 @@
 
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
+
+      setTimeout(() => {
+        try {
+          iframe.focus();
+        } catch (e) {}
+      }, 120);
     }
 
     function closeProjectPreview() {
