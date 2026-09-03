@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="icon" href="favicon.ico">
   <meta name="description"
-    content="Sharvonix designs and builds high-converting, custom digital experiences for ambitious brands and growing businesses. Websites starting from ₹5,999. Direct founder-level support.">
+    content="Sharvonix builds modern websites that bring you real customers. Custom design, ready in 3 to 7 days with direct 1-on-1 collaboration with founders Gargi &amp; Shubham. Starting from ₹5,999.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -433,11 +433,11 @@
     }
 
     .hero-headline {
-      font-size: clamp(40px, 6.8vw, 86px);
+      font-size: clamp(32px, 5.4vw, 68px);
       font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -0.035em;
-      margin-bottom: 28px;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
     }
 
     .hero-headline span.gradient-text {
@@ -1062,12 +1062,83 @@
       fill: currentColor;
     }
 
-    /* Services Right List */
+    /* Services Right List / Service Cards */
     .services-timeline-list {
       display: flex;
       flex-direction: column;
-      gap: 22px;
+      gap: 16px;
       position: relative;
+    }
+
+    .service-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 20px 22px;
+      border-radius: var(--radius-md);
+      background: #FFFFFF;
+      border: 1px solid #E8E6E1;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      transition: var(--transition);
+      cursor: default;
+    }
+
+    .service-card:hover {
+      background: #FFFFFF;
+      border-color: var(--accent-purple);
+      transform: translateY(-2px) translateX(4px);
+      box-shadow: 0 8px 24px rgba(43, 58, 103, 0.12);
+    }
+
+    .service-card .service-circle-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--accent-purple-soft);
+      border: 1.5px solid var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-purple);
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(43, 58, 103, 0.08);
+      transition: var(--transition);
+      margin-top: 2px;
+    }
+
+    .service-card:hover .service-circle-icon {
+      background: var(--accent-purple);
+      border-color: var(--accent-purple);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px var(--accent-purple-glow);
+      transform: scale(1.06);
+    }
+
+    .service-card .service-circle-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+    }
+
+    .service-card-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .service-card-title {
+      font-family: var(--font-heading);
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .service-card-desc {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin: 0;
     }
 
     .service-timeline-row {
@@ -1179,6 +1250,14 @@
     }
 
     /* PRICING SECTION */
+    .mobile-pricing-tabs {
+      display: none;
+    }
+
+    .pricing-carousel-dots {
+      display: none;
+    }
+
     .pricing-deck {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1497,15 +1576,15 @@
     }
 
     .direct-lines-tag {
-      font-size: 12px !important; /* text-xs */
-      font-weight: 600 !important; /* font-semibold */
-      letter-spacing: 0.05em !important; /* tracking-wider */
-      color: #2563EB !important; /* text-blue-600 */
-      text-transform: uppercase !important;
-      background: #EFF6FF !important; /* bg-blue-50 */
-      padding: 4px 12px !important; /* px-3 py-1 */
-      border-radius: 9999px !important; /* rounded-full */
-      width: fit-content !important; /* w-fit */
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.01em !important;
+      color: #2563EB !important;
+      text-transform: none !important;
+      background: #EFF6FF !important;
+      padding: 6px 14px !important;
+      border-radius: 9999px !important;
+      width: fit-content !important;
       display: inline-block;
       margin-bottom: 20px;
     }
@@ -2231,10 +2310,10 @@
       }
 
       .hero-headline {
-        font-size: clamp(30px, 8.8vw, 46px) !important;
+        font-size: clamp(25px, 7vw, 38px) !important;
         line-height: 1.12 !important;
         letter-spacing: -0.025em !important;
-        margin-bottom: 18px !important;
+        margin-bottom: 16px !important;
       }
 
       .hero-subhead {
@@ -2806,17 +2885,16 @@
       </div>
 
       <h1 class="hero-headline reveal">
-        We build <span class="gradient-text">digital experiences</span>,<br>not just websites.
+        We Build Modern Websites That Bring You Real Customers.
       </h1>
 
       <p class="hero-subhead reveal">
-        Sharvonix is an independent digital experience studio founded by Gargi & Shubham. We design and engineer
-        premium, high-converting websites with dedicated founder-level craft from day one.
+        Custom design. Ready in 3 to 7 days. Direct 1-on-1 collaboration with founders Gargi &amp; Shubham.
       </p>
 
       <div class="hero-cta-group reveal">
-        <a href="#work" class="btn btn-primary">Explore our work ↗</a>
-        <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I'm%20looking%20to%20build%20a%20website%20for%20my%20business."
+        <a href="#pricing" class="btn btn-primary">Get Your Website ↗</a>
+        <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I%20want%20to%20build%20a%20website"
           target="_blank" class="btn btn-outline">
           Chat on WhatsApp
         </a>
@@ -2866,10 +2944,9 @@
   <!-- FEATURED WORK / PROJECTS -->
   <section class="section wrap" id="work">
     <div class="section-header reveal">
-      <div class="badge-mono">[ Live Demonstrations &amp; Concepts ]</div>
-      <h2 class="section-title">Showcase builds &amp; concepts</h2>
-      <p class="section-subtitle">Live, working prototypes and concept websites engineered by us across diverse
-        industries to showcase our UI craft, performance, and attention to detail.</p>
+      <div class="badge-mono">[ Our Work ]</div>
+      <h2 class="section-title">Websites We've Built</h2>
+      <p class="section-subtitle">Explore our live websites and design demos.</p>
     </div>
 
     <div class="projects-grid" id="projectsGrid">
@@ -2891,8 +2968,7 @@
     <div class="section-header reveal">
       <div class="badge-mono">[ The Advantage ]</div>
       <h2 class="section-title">Why businesses choose Sharvonix</h2>
-      <p class="section-subtitle">A direct, modern approach to digital design without agency bureaucracy or inflated
-        markups.</p>
+      <p class="section-subtitle">Fast, custom websites without agency delays or high fees.</p>
     </div>
 
     <div class="comparison-container reveal">
@@ -3051,7 +3127,7 @@
             <div class="speak-sub">Message or book a call</div>
           </div>
           <div class="speak-actions-btns">
-            <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I%20would%20like%20to%20discuss%20my%20project."
+            <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I%20want%20to%20build%20a%20website"
               target="_blank" class="speak-act-circle" title="Chat on WhatsApp">
               <svg viewBox="0 0 24 24">
                 <path
@@ -3068,73 +3144,63 @@
         </div>
       </div>
 
-      <!-- Right Column: Services List with Connected Circular Icons -->
+      <!-- Right Column: 4 Clear Service Cards -->
       <div class="services-timeline-list reveal">
 
-        <!-- 1. Web Development -->
-        <div class="service-timeline-row">
+        <!-- Card 1: Business Websites -->
+        <div class="service-card">
           <div class="service-circle-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="16 18 22 12 16 6" />
-              <polyline points="8 6 2 12 8 18" />
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
             </svg>
           </div>
-          <div class="service-row-title">Web Development</div>
+          <div class="service-card-info">
+            <div class="service-card-title">Business Websites</div>
+            <p class="service-card-desc">Professional websites designed to build trust and bring you client inquiries.</p>
+          </div>
         </div>
 
-        <!-- 2. Brand Designing -->
-        <div class="service-timeline-row">
+        <!-- Card 2: Online Stores -->
+        <div class="service-card">
           <div class="service-circle-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4.5L6 21l1.5-7.5L2 9h7z" />
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
             </svg>
           </div>
-          <div class="service-row-title">Brand Designing</div>
+          <div class="service-card-info">
+            <div class="service-card-title">Online Stores</div>
+            <p class="service-card-desc">Clean product catalogs with direct checkout or WhatsApp ordering.</p>
+          </div>
         </div>
 
-        <!-- 3. AI Agents & Automation -->
-        <div class="service-timeline-row">
+        <!-- Card 3: Landing Pages for Ads -->
+        <div class="service-card">
           <div class="service-circle-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="7" width="20" height="14" rx="2" />
-              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
             </svg>
           </div>
-          <div class="service-row-title">AI Agents &amp; Automations</div>
+          <div class="service-card-info">
+            <div class="service-card-title">Landing Pages for Ads</div>
+            <p class="service-card-desc">Fast-loading single pages built to turn ad traffic into phone calls and leads.</p>
+          </div>
         </div>
 
-        <!-- 4. Landing Pages -->
-        <div class="service-timeline-row">
+        <!-- Card 4: WhatsApp & AI Setup -->
+        <div class="service-card">
           <div class="service-circle-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="12" rx="2" />
-              <path d="M8 20h8M12 16v4" />
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
             </svg>
           </div>
-          <div class="service-row-title">Landing Pages</div>
-        </div>
-
-        <!-- 5. Top-Grade Animations -->
-        <div class="service-timeline-row">
-          <div class="service-circle-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3L12 3z" />
-            </svg>
+          <div class="service-card-info">
+            <div class="service-card-title">WhatsApp &amp; AI Setup</div>
+            <p class="service-card-desc">Automatic customer inquiries straight to your WhatsApp 24/7.</p>
           </div>
-          <div class="service-row-title">Top-Grade Animations</div>
-        </div>
-
-        <!-- 6. CRO Consultation & Maintenance -->
-        <div class="service-timeline-row">
-          <div class="service-circle-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-              <path d="M2 12h20" />
-            </svg>
-          </div>
-          <div class="service-row-title">CRO Consultation &amp; Support</div>
         </div>
 
       </div>
@@ -3146,38 +3212,33 @@
   <section class="section wrap" id="process">
     <div class="section-header reveal">
       <div class="badge-mono">[ How It Works ]</div>
-      <h2 class="section-title">A frictionless 4-step process</h2>
-      <p class="section-subtitle">From idea to live deployment in days with complete transparency at every milestone.
-      </p>
+      <h2 class="section-title">A simple 4-step process</h2>
+      <p class="section-subtitle">From first conversation to live website in 3 to 7 days.</p>
     </div>
 
     <div class="process-track-grid reveal">
       <div class="process-box">
         <div class="process-num-head">01</div>
-        <h3 class="process-box-title">Discuss</h3>
-        <p class="process-box-desc">We dive deep into your business goals, target audience, competitors, and exact
-          feature requirements.</p>
+        <h3 class="process-box-title">Quick Chat</h3>
+        <p class="process-box-desc">We understand your business goals</p>
       </div>
 
       <div class="process-box">
         <div class="process-num-head">02</div>
-        <h3 class="process-box-title">Design</h3>
-        <p class="process-box-desc">We build a high-fidelity visual prototype tailored uniquely to your brand identity
-          for your review.</p>
+        <h3 class="process-box-title">Design Preview</h3>
+        <p class="process-box-desc">We show you the design and adjust based on your feedback</p>
       </div>
 
       <div class="process-box">
         <div class="process-num-head">03</div>
-        <h3 class="process-box-title">Develop</h3>
-        <p class="process-box-desc">We code clean, blazingly fast, mobile-first pages with seamless interactions and SEO
-          optimization.</p>
+        <h3 class="process-box-title">Development</h3>
+        <p class="process-box-desc">We build it fast and test on all mobile phones</p>
       </div>
 
       <div class="process-box">
         <div class="process-num-head">04</div>
-        <h3 class="process-box-title">Deliver</h3>
-        <p class="process-box-desc">We launch your digital experience, connect domain & WhatsApp CTAs, and provide
-          founder support.</p>
+        <h3 class="process-box-title">Launch</h3>
+        <p class="process-box-desc">Your site is live on Google in 3-7 days</p>
       </div>
     </div>
   </section>
@@ -3195,33 +3256,32 @@
     <div class="mobile-pricing-tabs reveal" id="mobilePricingTabs">
       <button class="pricing-tab-btn" onclick="selectPricingPlan(0)" id="tabPlan0">Starter (₹5.9k)</button>
       <button class="pricing-tab-btn active" onclick="selectPricingPlan(1)" id="tabPlan1">⭐ Business (₹9.9k)</button>
-      <button class="pricing-tab-btn" onclick="selectPricingPlan(2)" id="tabPlan2">Growth (₹15.9k)</button>
+      <button class="pricing-tab-btn" onclick="selectPricingPlan(2)" id="tabPlan2">Custom Growth (₹15.9k)</button>
     </div>
 
     <div class="pricing-deck reveal" id="pricingDeck">
       <!-- Starter -->
       <div class="pricing-box" id="pricingCard0">
         <div>
-          <div class="plan-tier-label">Starter Plan</div>
+          <div class="plan-tier-label">Starter</div>
           <div class="plan-price-val">₹5,999</div>
-          <p class="plan-desc-text">Perfect for small businesses looking to establish a professional digital foothold.
-          </p>
+          <p class="plan-desc-text">Ideal for new businesses needing a clean 1-page presence.</p>
           <ul class="plan-features-list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12" />
               </svg> 1 to 3 Custom Designed Pages</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12" />
-              </svg> 100% Mobile & Tablet Responsive</li>
+              </svg> 100% Mobile &amp; Tablet Responsive</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12" />
-              </svg> WhatsApp Lead Integration</li>
+              </svg> WhatsApp Inquiry &amp; Direct Call Buttons</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12" />
-              </svg> 3 - 5 Days Fast Turnaround</li>
+              </svg> Delivered in 3 to 5 Days</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12" />
-              </svg> Direct Founder Contact</li>
+              </svg> Direct 1-on-1 Founder Support</li>
           </ul>
         </div>
         <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I'm%20interested%20in%20the%20Starter%20Plan%20(₹5,999)."
@@ -3234,25 +3294,25 @@
       <div class="pricing-box featured" id="pricingCard1">
         <div class="pricing-top-pill">Most Popular</div>
         <div>
-          <div class="plan-tier-label">Business Plan</div>
+          <div class="plan-tier-label">Business</div>
           <div class="plan-price-val">₹9,999</div>
-          <p class="plan-desc-text">For growing brands seeking an authoritative, high-converting digital experience.</p>
+          <p class="plan-desc-text">Full multi-page company website with SEO.</p>
           <ul class="plan-features-list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12" />
               </svg> Up to 6 Custom High-Impact Pages</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12" />
-              </svg> Premium Animations & Micro-Interactions</li>
+              </svg> Google SEO Setup &amp; Fast Indexing</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12" />
-              </svg> Core SEO Optimization & Google Indexing</li>
+              </svg> Fast Loading on All Mobile Phones</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12" />
               </svg> Interactive Contact Form + WhatsApp</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12" />
-              </svg> 1 Month Free Priority Maintenance</li>
+              </svg> 1 Month Free Priority Updates &amp; Support</li>
           </ul>
         </div>
         <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I'm%20interested%20in%20the%20Business%20Plan%20(₹9,999)."
@@ -3261,33 +3321,33 @@
         </a>
       </div>
 
-      <!-- Growth -->
+      <!-- Custom Growth -->
       <div class="pricing-box" id="pricingCard2">
         <div>
-          <div class="plan-tier-label">Growth / Custom</div>
+          <div class="plan-tier-label">Custom Growth</div>
           <div class="plan-price-val">₹15,999</div>
-          <p class="plan-desc-text">Complete custom platform for e-commerce, real estate, or web app experiences.</p>
+          <p class="plan-desc-text">Online stores, custom workflows &amp; AI features.</p>
           <ul class="plan-features-list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12" />
-              </svg> Full E-Commerce / Custom App Architecture</li>
+              </svg> Online Store or Custom Web Application</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12" />
-              </svg> Payment Gateway & Dynamic Catalogs</li>
+              </svg> Direct Checkout &amp; WhatsApp Ordering</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12" />
-              </svg> Advanced Analytics & Speed Optimization</li>
+              </svg> Automatic 24/7 WhatsApp &amp; AI Setup</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12" />
-              </svg> Custom CMS / Inventory Integration</li>
+              </svg> Custom Product Catalog &amp; CMS</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5">
                 <polyline points="20 6 9 17 4 12" />
-              </svg> Dedicated Priority Founder Support</li>
+              </svg> Dedicated Founder Support &amp; Priority Revisions</li>
           </ul>
         </div>
-        <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I'm%20interested%20in%20the%20Growth%20Plan%20(₹15,999)."
+        <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I'm%20interested%20in%20the%20Custom%20Growth%20Plan%20(₹15,999)."
           target="_blank" class="btn btn-outline" style="width:100%;">
-          Select Growth Plan
+          Select Custom Growth
         </a>
       </div>
     </div>
@@ -3371,8 +3431,8 @@
     <div class="wrap">
       <div class="section-header reveal">
         <div class="badge-mono">[ Contact Founders ]</div>
-        <h2 class="section-title">Let's build your digital experience</h2>
-        <p class="section-subtitle">Fill out the quick project inquiry below or connect directly on WhatsApp.</p>
+        <h2 class="section-title">Let's Build Your Website</h2>
+        <p class="section-subtitle">Tell us about your idea below, or message us directly on WhatsApp.</p>
       </div>
 
       <div class="contact-box-grid reveal">
@@ -3396,9 +3456,9 @@
           <div class="contact-input-field">
             <label for="projectTier">Interested Plan / Service</label>
             <select id="projectTier">
-              <option value="Business Plan (₹9,999)">Business Plan (₹9,999) - Recommended</option>
-              <option value="Starter Plan (₹5,999)">Starter Plan (₹5,999)</option>
-              <option value="Growth Plan (₹15,999)">Growth Plan (₹15,999)</option>
+              <option value="Business (₹9,999) — Most Popular">Business (₹9,999) — Most Popular</option>
+              <option value="Starter (₹5,999)">Starter (₹5,999)</option>
+              <option value="Custom Growth (₹15,999)">Custom Growth (₹15,999)</option>
               <option value="Custom Project Inquiry">Custom Project Inquiry</option>
             </select>
           </div>
@@ -3417,7 +3477,7 @@
         <!-- Direct Contact Info -->
         <div class="contact-direct-card">
           <div>
-            <span class="direct-lines-tag">[ Direct Lines ]</span>
+            <span class="direct-lines-tag">Call or WhatsApp Us Directly</span>
             <div class="founder-contact-pills">
               <div class="phone-call-row">
                 <a href="tel:+917988207356">+91 79882 07356</a>
@@ -3437,7 +3497,7 @@
               </div>
             </div>
             <p class="availability-note">
-              Available for WhatsApp chats &amp; discovery calls daily (9 AM – 9 PM IST).
+              Available daily (9 AM – 9 PM IST). Direct chat with Gargi &amp; Shubham.
             </p>
           </div>
 
@@ -3468,8 +3528,7 @@
           <span class="brand-text">Sharvonix</span>
         </a>
         <p style="font-size:14px; line-height:1.6;">
-          We build digital experiences, not just websites. High-converting web design studio for forward-thinking
-          brands.
+          We build modern websites that bring you real customers. Custom design with direct 1-on-1 founder support.
         </p>
       </div>
 
@@ -3488,7 +3547,7 @@
         <a href="mailto:sharvonix@gmail.com">sharvonix@gmail.com</a>
         <a href="tel:+917988207356">+91 79882 07356</a>
         <a href="tel:+917015436857">+91 70154 36857</a>
-        <a href="https://wa.me/917988207356" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
+        <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I%20want%20to%20build%20a%20website" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
       </div>
 
       <div class="footer-col">
@@ -4005,36 +4064,36 @@
 
       // Lead capture / project interest
       if (q.includes('start') || q.includes('hire') || q.includes('book') || q.includes('interested') || q.includes('build my') || q.includes('contact')) {
-        appendChatMsg(`We'd love to build your website! Please share your <b>Name</b> and <b>WhatsApp number</b> so Gargi and Shubham can reach out, or you can connect directly on WhatsApp at <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I'm%20ready%20to%20build%20a%20website%20for%20my%20brand." target="_blank" style="color:#25D366; font-weight:700;">+91 79882 07356 ↗</a>.`, 'bot');
+        appendChatMsg(`We'd love to build your website! Please share your <b>Name</b> and <b>WhatsApp number</b> so Gargi and Shubham can reach out, or you can connect directly on WhatsApp at <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I%20want%20to%20build%20a%20website" target="_blank" style="color:#25D366; font-weight:700;">+91 79882 07356 ↗</a>.`, 'bot');
         return;
       }
 
       // Packages & Pricing
       if (q.includes('price') || q.includes('cost') || q.includes('package') || q.includes('plan') || q.includes('rate') || q.includes('fee')) {
-        appendChatMsg(`Here are our studio packages:<br>• <b>Starter Plan:</b> ₹5,999 (Essential modern landing page, 3–5 days)<br>• <b>Business Plan:</b> ₹9,999 (Most Popular – multi-section custom web experience, animations, responsive design)<br>• <b>Custom Growth Plan:</b> ₹15,999 (Complex web app, custom AI integrations, priority delivery)<br><br><a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I'm%20interested%20in%20discussing%20your%20website%20packages." target="_blank" style="color:#25D366; font-weight:700;">Chat with founders on WhatsApp ↗</a>`, 'bot');
+        appendChatMsg(`Here are our packages:<br>• <b>Starter:</b> ₹5,999 (Ideal for new businesses needing a clean 1-page presence)<br>• <b>Business — Most Popular:</b> ₹9,999 (Full multi-page company website with SEO)<br>• <b>Custom Growth:</b> ₹15,999 (Online stores, custom workflows & AI features)<br><br><a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I%20want%20to%20build%20a%20website" target="_blank" style="color:#25D366; font-weight:700;">Chat with founders on WhatsApp ↗</a>`, 'bot');
         return;
       }
 
       // Turnaround & Delivery
       if (q.includes('fast') || q.includes('time') || q.includes('deliver') || q.includes('duration') || q.includes('how long') || q.includes('days')) {
-        appendChatMsg(`Our turnaround time is <b>3 to 7 business days</b> with direct founder-level dedication from day one. Ready to get started?`, 'bot');
+        appendChatMsg(`Our turnaround time is <b>3 to 7 days</b> with direct founder-level collaboration from day one. Ready to get started?`, 'bot');
         return;
       }
 
       // Founders
       if (q.includes('founder') || q.includes('who are') || q.includes('gargi') || q.includes('shubham') || q.includes('team')) {
-        appendChatMsg(`Sharvonix is an independent digital experience studio founded by <b>Gargi Sharma</b> and <b>Shubham Sharma</b>. Direct WhatsApp: <a href="https://wa.me/917988207356" target="_blank" style="color:#25D366; font-weight:700;">+91 79882 07356</a>.`, 'bot');
+        appendChatMsg(`Sharvonix is an independent web studio founded by <b>Gargi Sharma</b> and <b>Shubham Sharma</b>. Direct WhatsApp: <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I%20want%20to%20build%20a%20website" target="_blank" style="color:#25D366; font-weight:700;">+91 79882 07356</a>.`, 'bot');
         return;
       }
 
       // Tech Stack
       if (q.includes('tech') || q.includes('stack') || q.includes('framework') || q.includes('wordpress') || q.includes('next') || q.includes('react')) {
-        appendChatMsg(`We specialize in modern web technologies: <b>Next.js, Tailwind CSS, Supabase, Vercel, and Figma</b>—zero slow WordPress templates.`, 'bot');
+        appendChatMsg(`We specialize in modern web technologies for fast, conversion-focused websites—no bloated, slow templates.`, 'bot');
         return;
       }
 
       // Default polite studio response
-      appendChatMsg(`I can only assist with Sharvonix web development and design inquiries. Would you like to discuss a project for your brand? You can connect directly with Gargi and Shubham on WhatsApp at <a href="https://wa.me/917988207356" target="_blank" style="color:#25D366; font-weight:700;">+91 79882 07356 ↗</a>.`, 'bot');
+      appendChatMsg(`I can only assist with Sharvonix website inquiries. Would you like to discuss a project for your business? You can connect directly with Gargi and Shubham on WhatsApp at <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I%20want%20to%20build%20a%20website" target="_blank" style="color:#25D366; font-weight:700;">+91 79882 07356 ↗</a>.`, 'bot');
     }
 
     // 9. In-App Live Project Previewer Functions
