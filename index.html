@@ -89,6 +89,17 @@
       /* kept for JS compat, same as root */
     }
 
+    /* ── Magic UI DotPattern — global fixed background ── */
+    .magicui-dot-pattern {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -10;
+      overflow: visible;
+    }
+
     .wrap {
       max-width: var(--container);
       margin: 0 auto;
@@ -404,18 +415,7 @@
       z-index: 0;
     }
 
-    /* Hero dot-grid layer (CSS-only, contained inside hero) */
-    .hero-dot-bg {
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
-      background-size: 24px 24px;
-      mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-      -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
+    /* hero-content always above global dot pattern */
     .hero-content {
       max-width: 960px;
       margin: 0 auto;
@@ -2901,6 +2901,19 @@
 
 <body>
 
+  <!-- Magic UI DotPattern — global fixed background (stroke-based SVG dots, radial fade mask) -->
+  <svg
+    class="magicui-dot-pattern"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    style="mask-image:radial-gradient(ellipse at center,white 30%,transparent 85%);-webkit-mask-image:radial-gradient(ellipse at center,white 30%,transparent 85%);">
+    <defs>
+      <pattern id="magicui-dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+        <circle cx="1" cy="1" r="1" fill="rgba(148,163,184,0.55)" />
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#magicui-dots)" />
+  </svg>
 
   <!-- FLOATING NAVBAR -->
   <nav class="navbar">
@@ -2945,7 +2958,6 @@
 
   <!-- HERO SECTION -->
   <header class="hero-section wrap">
-    <div class="hero-dot-bg" aria-hidden="true"></div>
     <div class="hero-ambient-glow"></div>
     <div class="hero-content">
 
