@@ -1896,23 +1896,31 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #94A3B8;
+      color: #FFFFFF; /* text-white — was slate-400, now fully white for readability */
     }
 
     .ai-launcher-text {
       font-family: var(--font-sans);
       font-size: 13px;
-      font-weight: 500;
-      color: #F8FAFC;
+      font-weight: 600; /* font-medium → font-semibold for crispness on dark bg */
+      color: #FFFFFF; /* strictly white */
       letter-spacing: -0.01em;
+      white-space: nowrap;
     }
 
     .ai-launcher-dot {
-      width: 6px;
-      height: 6px;
+      width: 8px;  /* h-2 w-2 */
+      height: 8px;
       border-radius: 50%;
-      background: #10B981; /* emerald-500 */
-      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+      background: #34D399; /* bg-emerald-400 */
+      box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.3);
+      animation: ai-dot-pulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes ai-dot-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(0.85); }
     }
 
     .ai-avatar-pulse {
@@ -2974,6 +2982,10 @@
         <a href="#pricing" class="hero-btn-primary">Get Your Website ↗</a>
         <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I%20want%20to%20build%20a%20website"
           target="_blank" class="hero-btn-secondary">
+          <!-- WhatsApp brand icon -->
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zM12.05 3.67c4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.82-1.3-1.26-2.82-1.26-4.38 0-4.54 3.7-8.24 8.25-8.24zm4.52 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+          </svg>
           Chat on WhatsApp
         </a>
       </div>
@@ -3691,7 +3703,7 @@
   <!-- SHARVONIX AI ASSISTANT LAUNCHER (BOTTOM-RIGHT) -->
   <div class="ai-chat-launcher" id="aiChatLauncher" onclick="toggleAiChat()" role="button" aria-label="Talk to Sharvonix AI">
     <div class="ai-launcher-icon-wrap">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
       </svg>
     </div>
