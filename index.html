@@ -195,7 +195,6 @@
     .section, section[id] {
       padding: 112px 0 96px 0;
       position: relative;
-      border-bottom: 1px solid var(--border-hairline);
       scroll-margin-top: 112px;
     }
 
@@ -1889,7 +1888,6 @@
     /* FOOTER */
     footer.site-footer {
       padding: 80px 0 40px;
-      border-top: 1px solid var(--border-hairline);
       background: var(--bg-alt);
     }
 
@@ -1899,6 +1897,12 @@
       justify-content: space-between;
       gap: 40px;
       margin-bottom: 60px;
+      max-width: var(--container);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 28px;
+      padding-right: 28px;
+      box-sizing: border-box;
     }
 
     .footer-col h4 {
@@ -1951,7 +1955,6 @@
     }
 
     .footer-bottom-copy {
-      border-top: 1px solid var(--border-hairline);
       padding-top: 30px;
       text-align: center;
       font-size: 13px;
@@ -3809,7 +3812,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="site-footer wrap">
+  <footer class="site-footer">
     <div class="footer-main-row">
       <div style="max-width:320px;">
         <a href="#" class="nav-brand" style="margin-bottom:14px;">
