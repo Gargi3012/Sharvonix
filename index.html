@@ -17,12 +17,12 @@
 
   <style>
     :root {
-      /* ── Light & Premium Theme ── */
-      --bg-dark: #FAFAF8;
+      /* ── Light & Premium Porcelain Theme (Linear/Stripe aesthetic) ── */
+      --bg-dark: #FAFBFD;
       --bg-surface: #FFFFFF;
       --bg-card: #FFFFFF;
-      --bg-card-hover: #F3F1EC;
-      --bg-alt: #F3F1EC;
+      --bg-card-hover: #F8FAFC;
+      --bg-alt: #F1F5F9;
 
       --text-primary: #1A1A1A;
       --text-secondary: #6B6B6B;
@@ -89,7 +89,7 @@
       /* kept for JS compat, same as root */
     }
 
-    /* MagicUI-style Dot Pattern background */
+    /* Dot Pattern background */
     .dot-pattern {
       position: fixed;
       top: 0;
@@ -395,7 +395,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-top: 140px;
+      padding-top: 160px; /* pt-32 breathing room below navbar */
       padding-bottom: 80px;
       position: relative;
       overflow: hidden;
@@ -427,41 +427,123 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      margin-bottom: 28px;
-      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .hero-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #334155; /* text-slate-700 */
+      background: rgba(241, 245, 249, 0.85); /* bg-slate-100/80 */
+      border: 1px solid rgba(226, 232, 240, 0.85); /* border border-slate-200/80 */
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      letter-spacing: -0.01em;
+      transition: all 0.2s ease;
+      cursor: default;
+    }
+
+    .hero-status-badge:hover {
+      background: #F1F5F9;
+      border-color: #CBD5E1;
+    }
+
+    .hero-status-badge .live-dot {
+      width: 6px; /* h-1.5 w-1.5 */
+      height: 6px;
+      border-radius: 50%;
+      background-color: #10B981; /* bg-emerald-500 */
+      flex-shrink: 0;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
     }
 
     .hero-headline {
-      font-size: clamp(32px, 5.4vw, 68px);
-      font-weight: 800;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      margin-bottom: 24px;
-    }
-
-    .hero-headline span.gradient-text {
-      background: linear-gradient(135deg, #1A1A1A 20%, #2B3A67 60%, #D4AF37 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-family: var(--font-heading);
+      font-size: clamp(34px, 5vw, 58px); /* text-4xl sm:text-6xl */
+      font-weight: 700; /* font-bold */
+      line-height: 1.12; /* leading-[1.12] */
+      letter-spacing: -0.03em; /* tracking-tight */
+      color: #0F172A; /* text-slate-900 */
+      margin: 0 auto;
+      max-width: 860px;
     }
 
     .hero-subhead {
-      font-size: clamp(16px, 2.2vw, 20px);
-      color: var(--text-secondary);
-      max-width: 680px;
-      margin: 0 auto 44px;
-      line-height: 1.65;
+      font-family: var(--font-sans);
+      font-size: clamp(15px, 2vw, 18px); /* text-base sm:text-lg */
+      color: #475569; /* text-slate-600 */
+      font-weight: 400; /* font-normal */
+      line-height: 1.65; /* leading-relaxed */
+      max-width: 560px; /* max-w-xl */
+      margin: 20px auto 0; /* mt-5 */
     }
 
     .hero-cta-group {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 16px;
+      gap: 14px; /* gap-3.5 */
       flex-wrap: wrap;
+      margin-top: 32px; /* mt-8 */
       margin-bottom: 56px;
+    }
+
+    .hero-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #020617; /* bg-slate-950 */
+      color: #FFFFFF;
+      font-family: var(--font-sans);
+      font-size: 14px; /* text-sm */
+      font-weight: 500; /* font-medium */
+      padding: 14px 28px; /* py-3.5 px-7 */
+      border-radius: 12px; /* rounded-xl */
+      border: 1px solid #020617;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* shadow-sm */
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .hero-btn-primary:hover {
+      background: #1E293B; /* hover:bg-slate-800 */
+      border-color: #1E293B;
+      color: #FFFFFF;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(2, 6, 23, 0.15);
+    }
+
+    .hero-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #FFFFFF; /* bg-white */
+      color: #1E293B; /* text-slate-800 */
+      border: 1px solid #E2E8F0; /* border border-slate-200 */
+      font-family: var(--font-sans);
+      font-size: 14px; /* text-sm */
+      font-weight: 500; /* font-medium */
+      padding: 14px 28px; /* py-3.5 px-7 */
+      border-radius: 12px; /* rounded-xl */
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .hero-btn-secondary:hover {
+      background: #F8FAFC; /* hover:bg-slate-50 */
+      border-color: #CBD5E1;
+      color: #0F172A;
+      transform: translateY(-1px);
     }
 
     /* Stats / Value Highlights Strip Section */
@@ -1781,73 +1863,55 @@
       color: var(--text-muted);
     }
 
-    /* FLOATING WHATSAPP BUTTON: Refined pill (bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg) */
-    .floating-whatsapp-btn {
-      position: fixed;
-      bottom: 20px; /* bottom-5 */
-      left: 20px;   /* left-5 */
-      background: #059669 !important; /* bg-emerald-600 */
-      color: #FFFFFF !important;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: var(--radius-full);
-      padding: 10px 18px;
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      cursor: pointer;
-      box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.4), 0 4px 6px -4px rgba(5, 150, 105, 0.2) !important; /* shadow-lg */
-      z-index: 40; /* z-40 */
-      text-decoration: none;
-      transition: all 0.2s ease !important;
-    }
-
-    .floating-whatsapp-btn:hover {
-      transform: translateY(-2px);
-      background: #047857 !important; /* hover:bg-emerald-700 */
-      box-shadow: 0 20px 25px -5px rgba(5, 150, 105, 0.5) !important;
-      color: #FFFFFF !important;
-    }
-
-    .whatsapp-icon-pulse {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      line-height: 1;
-    }
-
-    .floating-whatsapp-text {
-      font-size: 13px;
-      font-weight: 700;
-      color: #FFFFFF;
-      letter-spacing: -0.01em;
-    }
-
-    /* AI ASSISTANT CHATBOT widget: Clean white/slate glassmorphism card (bg-white/95 text-slate-800 border border-slate-200 shadow-xl) */
+    /* AI ASSISTANT CHATBOT widget: Sleek, compact dark pill at bottom-right (Linear/Stripe aesthetic) */
     .ai-chat-launcher {
       position: fixed;
       bottom: 20px; /* bottom-5 */
       right: 20px;  /* right-5 */
-      background: rgba(255, 255, 255, 0.95) !important; /* bg-white/95 */
-      color: #1E293B !important; /* text-slate-800 */
-      border: 1px solid #E2E8F0 !important; /* border border-slate-200 */
-      border-radius: var(--radius-full);
-      padding: 10px 18px;
+      background: #0F172A !important; /* bg-slate-900 */
+      color: #F8FAFC !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      border-radius: 9999px;
+      padding: 9px 16px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       cursor: pointer;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important; /* shadow-xl */
+      box-shadow: 0 10px 25px -3px rgba(15, 23, 42, 0.25), 0 4px 6px -4px rgba(15, 23, 42, 0.1) !important;
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      z-index: 40; /* z-40 */
-      transition: all 0.2s ease !important;
+      z-index: 50; /* z-50 */
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
 
     .ai-chat-launcher:hover {
       transform: translateY(-2px);
-      background: #FFFFFF !important;
-      border-color: #CBD5E1 !important;
-      box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.12) !important;
+      background: #1E293B !important;
+      border-color: rgba(255, 255, 255, 0.22) !important;
+      box-shadow: 0 16px 30px -4px rgba(15, 23, 42, 0.35) !important;
+    }
+
+    .ai-launcher-icon-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94A3B8;
+    }
+
+    .ai-launcher-text {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: #F8FAFC;
+      letter-spacing: -0.01em;
+    }
+
+    .ai-launcher-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10B981; /* emerald-500 */
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
     }
 
     .ai-avatar-pulse {
@@ -2335,50 +2399,45 @@
         justify-content: center !important;
       }
 
-      .hero-badge-wrap {
-        gap: 6px !important;
-        margin-bottom: 16px !important;
-      }
-
-      .hero-badge-wrap .badge-mono {
-        font-size: 10.5px !important;
-        padding: 4px 10px !important;
-        letter-spacing: 0.03em !important;
-      }
-
       .hero-headline {
-        font-size: clamp(24px, 6.8vw, 34px) !important;
-        line-height: 1.14 !important;
-        letter-spacing: -0.025em !important;
-        margin-bottom: 12px !important;
+        font-size: clamp(30px, 8.5vw, 38px) !important;
+        line-height: 1.12 !important;
+        letter-spacing: -0.03em !important;
+        font-weight: 700 !important;
+        color: #0F172A !important;
+        margin-bottom: 0 !important;
         padding: 0 4px !important;
       }
 
       .hero-subhead {
-        font-size: 13.5px !important;
-        line-height: 1.5 !important;
-        margin-bottom: 22px !important;
-        padding: 0 8px !important;
-        max-width: 95% !important;
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+        color: #475569 !important;
+        margin-top: 16px !important;
+        margin-bottom: 0 !important;
+        padding: 0 6px !important;
+        max-width: 440px !important;
       }
 
       .hero-cta-group {
         flex-direction: column !important;
-        gap: 10px !important;
+        gap: 12px !important; /* gap-3 */
         width: 100% !important;
         max-width: 320px !important;
-        margin-bottom: 0 !important;
+        margin: 24px auto 0 !important;
       }
 
-      .hero-cta-group .btn {
+      .hero-btn-primary,
+      .hero-btn-secondary {
         width: 100% !important;
         justify-content: center !important;
-        padding: 13px 18px !important;
-        font-size: 14.5px !important;
+        padding: 14px 20px !important;
+        font-size: 14px !important;
+        border-radius: 12px !important;
       }
 
       .hero-stats-section {
-        margin: 28px auto 44px !important;
+        margin: 32px auto 48px !important;
         padding: 0 16px !important;
       }
 
@@ -2813,23 +2872,12 @@
         height: calc(100vh - 54px) !important;
       }
 
-      /* 14. Floating Widgets: fixed bottom-5 left-5 and right-5 z-40 */
-      .floating-whatsapp-btn {
-        bottom: 20px !important; /* bottom-5 */
-        left: 20px !important;   /* left-5 */
-        padding: 8px 14px !important;
-        z-index: 40 !important;  /* z-40 */
-      }
-
-      .floating-whatsapp-text {
-        font-size: 12px !important;
-      }
-
+      /* 14. Floating AI Widget: fixed bottom-5 right-5 z-50 */
       .ai-chat-launcher {
         bottom: 20px !important; /* bottom-5 */
         right: 20px !important;  /* right-5 */
         padding: 8px 14px !important;
-        z-index: 40 !important;  /* z-40 */
+        z-index: 50 !important;  /* z-50 */
       }
 
       .ai-launcher-text {
@@ -2852,24 +2900,21 @@
 
 <body>
 
-  <!-- MagicUI-style Dot Pattern Background -->
+  <!-- Dot Pattern Background -->
   <svg class="dot-pattern" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs>
-      <!-- Dot grid tile: 20x20 cells with a 1.5px radius circle each -->
       <pattern id="dot-grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-        <circle cx="1" cy="1" r="1.2" fill="#2B3A67" opacity="0.22" />
+        <circle cx="1" cy="1" r="1.2" fill="#2B3A67" opacity="0.18" />
       </pattern>
-      <!-- Radial gradient mask: visible in center, fades to transparent at edges -->
       <radialGradient id="dot-mask-gradient" cx="50%" cy="38%" r="55%" fx="50%" fy="38%">
         <stop offset="0%" stop-color="white" stop-opacity="1" />
-        <stop offset="55%" stop-color="white" stop-opacity="0.5" />
+        <stop offset="55%" stop-color="white" stop-opacity="0.4" />
         <stop offset="100%" stop-color="white" stop-opacity="0" />
       </radialGradient>
       <mask id="dot-mask">
         <rect width="100%" height="100%" fill="url(#dot-mask-gradient)" />
       </mask>
     </defs>
-    <!-- Full viewport rectangle filled with the dot pattern, clipped by radial mask -->
     <rect width="100%" height="100%" fill="url(#dot-grid)" mask="url(#dot-mask)" />
   </svg>
 
@@ -2919,16 +2964,6 @@
     <div class="hero-ambient-glow"></div>
     <div class="hero-content">
 
-      <div class="hero-badge-wrap reveal">
-        <div class="badge-mono">
-          <span class="live-dot"></span>
-          <span>Early-Stage Studio · 100% Founder Dedication</span>
-        </div>
-        <div class="badge-mono"
-          style="background:rgba(255,255,255,0.05); border-color:var(--border-card); color:var(--text-secondary);">
-          Websites starting from ₹5,999
-        </div>
-      </div>
 
       <h1 class="hero-headline reveal">
         We Build Modern Websites That Bring You Real Customers.
@@ -2939,9 +2974,9 @@
       </p>
 
       <div class="hero-cta-group reveal">
-        <a href="#pricing" class="btn btn-primary">Get Your Website ↗</a>
+        <a href="#pricing" class="hero-btn-primary">Get Your Website ↗</a>
         <a href="https://wa.me/917988207356?text=Hi%20Sharvonix,%20I%20want%20to%20build%20a%20website"
-          target="_blank" class="btn btn-outline">
+          target="_blank" class="hero-btn-secondary">
           Chat on WhatsApp
         </a>
       </div>
@@ -3656,22 +3691,15 @@
     </div>
   </div>
 
-  <!-- FLOATING WHATSAPP BUTTON (BOTTOM-LEFT) -->
-  <a href="https://wa.me/917988207356?text=Hi%20Gargi%20and%20Shubham,%20I%20would%20like%20to%20discuss%20a%20website%20project%20for%20my%20brand."
-    target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" id="floatingWhatsappBtn"
-    aria-label="Direct WhatsApp Chat with Founders" title="Chat directly with Founders on WhatsApp">
-    <div class="whatsapp-icon-pulse">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zM12.05 3.67c4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.82-1.3-1.26-2.82-1.26-4.38 0-4.54 3.7-8.24 8.25-8.24zm4.52 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+  <!-- SHARVONIX AI ASSISTANT LAUNCHER (BOTTOM-RIGHT) -->
+  <div class="ai-chat-launcher" id="aiChatLauncher" onclick="toggleAiChat()" role="button" aria-label="Talk to Sharvonix AI">
+    <div class="ai-launcher-icon-wrap">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
       </svg>
     </div>
-    <span class="floating-whatsapp-text">Direct WhatsApp</span>
-  </a>
-
-  <!-- SHARVONIX AI ASSISTANT LAUNCHER (BOTTOM-RIGHT) -->
-  <div class="ai-chat-launcher" id="aiChatLauncher" onclick="toggleAiChat()">
-    <span class="live-dot" style="background:#22C55E; width:8px; height:8px;"></span>
-    <span class="ai-launcher-text" style="font-size:13px; font-weight:700; color:#fff;">Talk to Sharvonix AI</span>
+    <span class="ai-launcher-text">Talk to AI</span>
+    <span class="ai-launcher-dot"></span>
   </div>
 
   <!-- SHARVONIX AI CHAT MODAL -->
