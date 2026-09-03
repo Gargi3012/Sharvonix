@@ -79,6 +79,74 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
+    /* ── Magic UI DotPattern with Glow Effect (Global Background) ── */
+    .magicui-dot-container {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .magicui-dot-pattern {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.60;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 45%, transparent 95%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 45%, transparent 95%);
+    }
+
+    /* Ambient Soft Glow (Glow Effect) */
+    .magicui-glow-orb {
+      position: absolute;
+      top: 32%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(59, 130, 246, 0.06) 45%, transparent 75%);
+      filter: blur(70px);
+      animation: magicui-glow-breath 9s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    /* Interactive Mouse Glow */
+    .magicui-glow-interactive {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(147, 197, 253, 0.16) 0%, rgba(99, 102, 241, 0.06) 50%, transparent 70%);
+      filter: blur(55px);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      will-change: transform;
+    }
+
+    @keyframes magicui-glow-breath {
+      0% {
+        transform: translate(-50%, -50%) scale(0.92);
+        opacity: 0.65;
+      }
+      50% {
+        transform: translate(-50%, -52%) scale(1.15);
+        opacity: 0.95;
+      }
+      100% {
+        transform: translate(-50%, -48%) scale(1.0);
+        opacity: 0.75;
+      }
+    }
+
     ::selection {
       background: var(--accent-purple);
       color: #FFFFFF;
@@ -236,17 +304,17 @@
       transform: translateX(-50%);
       width: calc(100% - 40px);
       max-width: 1080px;
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--border-card);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(20px) saturate(190%);
+      -webkit-backdrop-filter: blur(20px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.60);
       border-radius: var(--radius-full);
       padding: 10px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       z-index: 1000;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
       transition: var(--transition);
     }
 
@@ -292,7 +360,7 @@
       gap: 28px;
       font-size: 14px;
       font-weight: 500;
-      color: var(--text-secondary);
+      color: #334155; /* text-slate-700 */
     }
 
     .nav-links a {
@@ -1154,10 +1222,14 @@
       align-items: flex-start;
       gap: 18px;
       padding: 20px 22px;
-      border-radius: var(--radius-md);
-      background: #FFFFFF;
-      border: 1px solid #E8E6E1;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.80);
+      box-shadow:
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.9),
+        0 10px 30px -5px rgba(0, 0, 0, 0.04);
       transition: var(--transition);
       cursor: default;
     }
@@ -1853,59 +1925,58 @@
       color: var(--text-muted);
     }
 
-    /* AI ASSISTANT CHATBOT widget: Sleek, compact dark pill at bottom-right (Linear/Stripe aesthetic) */
+    /* AI ASSISTANT CHATBOT widget: Clean Crisp White Studio Design */
     .ai-chat-launcher {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #0f172a !important;
-      color: #ffffff !important;
-      border: 1px solid rgba(255, 255, 255, 0.15) !important;
-      border-radius: 9999px;
-      padding: 10px 18px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      bottom: 24px; /* fixed bottom-6 */
+      right: 24px;  /* fixed right-6 */
+      background-color: #ffffff !important;
+      border: 1px solid #e2e8f0 !important;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04) !important;
+      border-radius: 9999px !important;
+      padding: 10px 18px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
       cursor: pointer;
-      box-shadow: 0 10px 25px -3px rgba(15, 23, 42, 0.35), 0 4px 6px -4px rgba(15, 23, 42, 0.15) !important;
       z-index: 50;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .ai-chat-launcher:hover {
       transform: translateY(-2px);
-      background: #1E293B !important;
-      border-color: rgba(255, 255, 255, 0.22) !important;
-      box-shadow: 0 16px 30px -4px rgba(15, 23, 42, 0.35) !important;
+      background-color: #f8fafc !important;
+      border-color: #cbd5e1 !important;
+      box-shadow: 0 14px 28px -4px rgba(0, 0, 0, 0.12) !important;
     }
 
     .ai-launcher-icon-wrap {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #ffffff !important;
+      color: #0f172a !important;
     }
 
     .ai-launcher-icon-wrap svg {
-      stroke: #ffffff !important;
-      color: #ffffff !important;
+      stroke: #0f172a !important;
     }
 
     .ai-launcher-text {
       font-family: var(--font-sans);
       font-size: 13px !important;
-      font-weight: 500 !important;
-      color: #ffffff !important;
-      letter-spacing: -0.01em;
+      font-weight: 600 !important;
+      color: #0f172a !important; /* Deep crisp slate */
+      letter-spacing: -0.01em !important;
       white-space: nowrap;
     }
 
     .ai-launcher-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: #22c55e !important;
-      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.3);
+      width: 7px !important;
+      height: 7px !important;
+      border-radius: 9999px !important;
+      background-color: #10b981 !important; /* Emerald green */
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
       animation: ai-dot-pulse 2s ease-in-out infinite;
       flex-shrink: 0;
     }
@@ -1913,6 +1984,118 @@
     @keyframes ai-dot-pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.65; transform: scale(0.85); }
+    }
+
+    /* ── iOS FLOATING DOCK PILL — Ember & Thyme Luxury Style ── */
+    .mobile-bottom-bar {
+      display: none;
+    }
+
+    @media (max-width: 860px) {
+      .mobile-bottom-bar {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 92% !important;
+        max-width: 384px !important;
+        z-index: 50 !important;
+        /* Rich graphite / dark charcoal */
+        background: #1c1c1e !important;
+        backdrop-filter: blur(20px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-radius: 9999px !important;
+        padding: 8px 10px 8px 12px !important;
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08) inset !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 12px !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Left icon group */
+      .mobile-dock-icons {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        flex-shrink: 0 !important;
+      }
+
+      /* Circular icon buttons (w-11 h-11 / 44px) - BOTH IDENTICAL LIGHTER GRAY */
+      .mobile-dock-icon-btn {
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 9999px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-decoration: none !important;
+        background: rgba(255, 255, 255, 0.12) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        color: #ffffff !important;
+        -webkit-tap-highlight-color: transparent !important;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        flex-shrink: 0 !important;
+      }
+
+      .mobile-dock-icon-btn:hover,
+      .mobile-dock-icon-btn:active {
+        background: rgba(255, 255, 255, 0.20) !important;
+        transform: scale(0.92) !important;
+      }
+
+      .mobile-dock-icon-btn svg {
+        width: 17px !important;
+        height: 17px !important;
+        stroke: #ffffff !important;
+        fill: #ffffff !important;
+      }
+
+      .mobile-dock-icon-btn.dock-call svg {
+        fill: none !important; /* Phone icon uses stroke */
+        stroke: #ffffff !important;
+      }
+
+      /* Right-Side Action Button ("Get Website ↗") — Sharvonix Clean Studio White */
+      .mobile-dock-cta {
+        flex: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        background: #ffffff !important; /* Pure clean white */
+        color: #09090b !important; /* Deep black matching Sharvonix brand */
+        border: 1px solid rgba(255, 255, 255, 0.20) !important;
+        text-decoration: none !important;
+        font-family: var(--font-sans) !important;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        letter-spacing: normal !important;
+        text-transform: none !important;
+        padding: 10px 18px !important; /* px-5 py-2.5 */
+        border-radius: 9999px !important;
+        white-space: nowrap !important;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+        -webkit-tap-highlight-color: transparent !important;
+      }
+
+      .mobile-dock-cta:hover {
+        background: #f1f5f9 !important;
+        color: #09090b !important;
+      }
+
+      .mobile-dock-cta:active {
+        transform: scale(0.97) !important;
+        background: #e2e8f0 !important;
+      }
+
+      /* Prevent floating dock from covering footer text */
+      footer, .site-footer, .footer {
+        padding-bottom: 112px !important; /* pb-28 */
+      }
     }
 
     .ai-avatar-pulse {
@@ -2873,17 +3056,6 @@
         height: calc(100vh - 54px) !important;
       }
 
-      /* 14. Floating AI Widget: fixed bottom-5 right-5 z-50 */
-      .ai-chat-launcher {
-        bottom: 20px !important; /* bottom-5 */
-        right: 20px !important;  /* right-5 */
-        padding: 8px 14px !important;
-        z-index: 50 !important;  /* z-50 */
-      }
-
-      .ai-launcher-text {
-        font-size: 12px !important;
-      }
 
       .ai-chat-modal {
         bottom: 70px !important;
@@ -2895,14 +3067,32 @@
         max-height: 75vh !important;
         z-index: 45 !important;
       }
+      /* On mobile: hide both floating widgets — bottom bar replaces them */
+      .float-wa-btn {
+        display: none !important;
+      }
+      .ai-chat-launcher {
+        display: none !important;
+      }
     }
   </style>
 </head>
 
 <body>
 
-
-  <!-- FLOATING NAVBAR -->
+  <!-- Magic UI DotPattern with Glow Effect (Global Website Background) -->
+  <div class="magicui-dot-container" aria-hidden="true">
+    <div class="magicui-glow-orb"></div>
+    <div class="magicui-glow-interactive" id="magicUiGlowOrb"></div>
+    <svg class="magicui-dot-pattern" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="magicui-dot-grid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r="1.2" fill="#94a3b8" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#magicui-dot-grid)" />
+    </svg>
+  </div>
   <nav class="navbar">
     <a href="#" class="nav-brand">
       <div class="brand-logo-wrap">
@@ -3679,15 +3869,44 @@
     </div>
   </div>
 
+  <!-- iOS FLOATING DOCK PILL (mobile only - Ember & Thyme style) -->
+  <div class="mobile-bottom-bar" id="mobileBottomBar">
+
+    <!-- Left Group (Call + WhatsApp in circular buttons) -->
+    <div class="mobile-dock-icons">
+      <a href="tel:+917988207356" class="mobile-dock-icon-btn dock-call" aria-label="Call Gargi" title="Call">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </a>
+      <a
+        href="https://wa.me/917988207356?text=Hi%20Gargi!%20I%20would%20like%20to%20discuss%20a%20website%20project%20for%20my%20brand."
+        target="_blank" rel="noopener noreferrer"
+        class="mobile-dock-icon-btn dock-wa"
+        aria-label="WhatsApp Gargi" title="WhatsApp">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zM12.05 3.67c4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.82-1.3-1.26-2.82-1.26-4.38 0-4.54 3.7-8.24 8.25-8.24zm4.52 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Right Side CTA Button (Takes up the rest of the dock) -->
+    <a href="#contact" class="mobile-dock-cta">
+      Get Website ↗
+    </a>
+
+  </div>
+
+
   <!-- SHARVONIX AI ASSISTANT LAUNCHER (BOTTOM-RIGHT) -->
-  <div class="ai-chat-launcher" id="aiChatLauncher" onclick="toggleAiChat()" role="button" aria-label="Talk to Sharvonix AI">
-    <div class="ai-launcher-icon-wrap">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <div class="ai-chat-launcher" id="aiChatLauncher" onclick="toggleAiChat()" role="button" aria-label="Talk to Sharvonix AI" style="background-color:#ffffff !important; border:1px solid #e2e8f0 !important; box-shadow:0 10px 25px -5px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04) !important; bottom:24px !important; right:24px !important; z-index:50 !important;">
+    <div class="ai-launcher-icon-wrap" style="color:#0f172a !important;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
       </svg>
     </div>
-    <span class="ai-launcher-text">Talk to AI</span>
-    <span class="ai-launcher-dot"></span>
+    <span class="ai-launcher-text" style="color:#0f172a !important; font-weight:600 !important; font-size:13px !important; letter-spacing:-0.01em !important;">Talk to AI</span>
+    <span class="ai-launcher-dot" style="background-color:#10b981 !important; width:7px !important; height:7px !important;"></span>
   </div>
 
   <!-- SHARVONIX AI CHAT MODAL -->
@@ -4261,6 +4480,20 @@
         }
       }
     });
+
+    // Magic UI DotPattern Interactive Glow Effect
+    (function initMagicUiGlow() {
+      const orb = document.getElementById('magicUiGlowOrb');
+      if (!orb) return;
+      window.addEventListener('mousemove', (e) => {
+        orb.style.opacity = '1';
+        orb.style.left = e.clientX + 'px';
+        orb.style.top = e.clientY + 'px';
+      }, { passive: true });
+      window.addEventListener('mouseleave', () => {
+        orb.style.opacity = '0';
+      });
+    })();
   </script>
 
 </body>
